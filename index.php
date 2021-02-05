@@ -75,7 +75,7 @@
           <h1 data-aos="fade-up">Bangun Bisnis Anda bersama KakaPos</h1>
           <!-- <h2 data-aos="fade-up" data-aos-delay="400">We are team of talanted designers making websites with Bootstrap</h2> -->
           <div data-aos="fade-up" data-aos-delay="800">
-            <a href="regiter.php" class="btn-get-started scrollto">Daftar</a>
+            <a href="register.php" class="btn-get-started scrollto">Daftar</a>
             <a href=" " class="btn-get-started scrollto" >Unduh</a>
           </div>
         </div>
