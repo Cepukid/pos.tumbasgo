@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['email'] = $row['email'];
       $_SESSION['key']=mt_rand(1000,9999);
       $_SESSION['user_type'] = $row['user_type'];
+      $_SESSION['shop_id'] = $row['shop_id'];
 
 
       header("location:dashboard.php");

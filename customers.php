@@ -284,6 +284,7 @@ else {
                                     <th>Customer Address</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
@@ -300,7 +301,7 @@ else {
                                 <?php
 
                                 include('db_connect.php');
-                                $sql = "SELECT * FROM customers ORDER BY customer_id DESC";
+                                $sql = "SELECT * FROM customers WHERE shop_id = $shop_id ORDER BY customer_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

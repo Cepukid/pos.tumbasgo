@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_sell_price = $_POST['product_price'];
   $product_stock = $_POST['product_stock'];
   $product_description = $_POST['product_description'];
+  $shop_id = $_SESSION['shop_id'];
 
 
   //get file name
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include('db_connect.php');
 
 
-  $result = mysqli_query($con, "SELECT * FROM products where product_code='$product_code'");
+  $result = mysqli_query($con, "SELECT * FROM products WHERE shop_id=$shop_id AND product_code='$product_code'");
   $num_rows = mysqli_num_rows($result);
 
   if ($num_rows > 0) {
@@ -49,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], "product_images/" . $newfilename);
     }
 
-    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock')")) {
+    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id')")) {
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
       echo '}, 500);</script>';

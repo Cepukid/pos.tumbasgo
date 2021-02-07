@@ -282,6 +282,7 @@ else {
                                     <th>Category Name</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
@@ -298,7 +299,7 @@ else {
                                 <?php
 
                                 include('db_connect.php');
-                                $sql = "SELECT * FROM product_category ORDER BY product_category_id DESC";
+                                $sql = "SELECT * FROM product_category WHERE shop_id=$shop_id ORDER BY product_category_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

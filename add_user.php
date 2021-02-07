@@ -15,10 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user_phone = $_POST['user_phone'];
   $user_password = $_POST['user_password'];
   $user_type = $_POST['user_type'];
+  $shop_id = $_SESSION['shop_id'];
+
+  
 
   include('db_connect.php');
 
-  $result = mysqli_query($con, "SELECT * FROM users WHERE email='$user_email' OR cell='$user_phone'");
+  $result = mysqli_query($con, "SELECT * FROM users WHERE shop_id = $shop_id AND email='$user_email' OR cell='$user_phone'");
   $num_rows = mysqli_num_rows($result);
 
 
@@ -27,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'setTimeout(function () { swal.fire("ERROR!","User already exists!","error");';
     echo '}, 500);</script>';
   } else {
-    if (mysqli_query($con, "INSERT INTO users (`name`,`cell`,`email`,`password`,`user_type`) VALUE ('$user_name','$user_phone','$user_email','$user_password','$user_type')")) {
+    if (mysqli_query($con, "INSERT INTO users (`name`,`cell`,`email`,`password`,`user_type`,`shop_id`) VALUE ('$user_name','$user_phone','$user_email','$user_password','$user_type','$shop_id')")) {
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("User Successfully Added!","Done!","success");';
       echo '}, 500);</script>';

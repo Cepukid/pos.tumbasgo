@@ -327,7 +327,7 @@ else {
                                         echo "<td> <a class='confirmation btn btn-danger'  href=\"delete_order.php?id=" . $row['order_id'] . "\" ><i class='fas fa-trash'> </i></a></td>";
                                     }
 
-                                    $i++;
+                                    $i;
 
                                     echo "</tr> ";
                                 }

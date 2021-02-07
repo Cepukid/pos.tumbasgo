@@ -12,11 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $product_category_name = $_POST['product_category_name'];
+    $shop_id = $_SESSION['shop_id'];
 
     include('db_connect.php');
 
 
-    $result = mysqli_query($con, "SELECT * FROM product_category WHERE product_category_name='$product_category_name'");
+    $result = mysqli_query($con, "SELECT * FROM product_category WHERE shop_id=$shop_id product_category_name='$product_category_name'");
     $num_rows = mysqli_num_rows($result);
 
 
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo 'setTimeout(function () { swal.fire("ERROR!","Category already exists!","error");';
         echo '}, 500);</script>';
     } else {
-        if (mysqli_query($con, "INSERT INTO product_category (`product_category_name`) VALUE ('$product_category_name')")) {
+        if (mysqli_query($con, "INSERT INTO product_category (`product_category_name`,`shop_id`) VALUE ('$product_category_name','$shop_id')")) {
             echo '<script type="text/javascript">';
             echo 'setTimeout(function () { swal.fire("Category Successfully Added!","Done!","success");';
             echo '}, 500);</script>';

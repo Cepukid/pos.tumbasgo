@@ -15,12 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $customer_email = $_POST['customer_email'];
   $customer_phone = $_POST['customer_phone'];
   $customer_address = $_POST['customer_address'];
+  $shop_id = $_SESSION['shop_id'];
 
 
     include('db_connect.php');
 
 
-    $result = mysqli_query($con, "SELECT * FROM customers where customer_email='$customer_email' OR customer_cell='$customer_phone'");
+    $result = mysqli_query($con, "SELECT * FROM customers WHERE shop_id = $shop_id AND customer_email='$customer_email' OR customer_cell='$customer_phone'");
     $num_rows = mysqli_num_rows($result);
 
 
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo 'setTimeout(function () { swal.fire("ERROR!","Customer email or phone already exists!","error");';
       echo '}, 500);</script>';
     } else {
-      if (mysqli_query($con, "INSERT INTO customers (`customer_name`,`customer_email`,`customer_cell`,`customer_address`) VALUE ('$customer_name','$customer_email','$customer_phone','$customer_address')")) {
+      if (mysqli_query($con, "INSERT INTO customers (`customer_name`,`customer_email`,`customer_cell`,`customer_address` , `shop_id`) VALUE ('$customer_name','$customer_email','$customer_phone','$customer_address','$shop_id')")) {
         echo '<script type="text/javascript">';
         echo 'setTimeout(function () { swal.fire("Customer Successfully Added!","Done!","success");';
         echo '}, 500);</script>';

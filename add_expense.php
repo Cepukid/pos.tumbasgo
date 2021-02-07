@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $expense_amount = $_POST['expense_amount'];
   $expense_time = date('h:i A ', strtotime($_POST['expense_time']));
   $expense_date = $_POST['expense_date'];
+  $shop_id = $_SESSION['shop_id'];
 
 
   include('db_connect.php');
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'setTimeout(function () { swal.fire("ERROR!","Expense already exists!","error");';
     echo '}, 500);</script>';
   } else {
-    if (mysqli_query($con, "INSERT INTO expense (`expense_name`,`expense_note`,`expense_amount`,`expense_time`,`expense_date`) VALUE ('$expense_name','$expense_note','$expense_amount','$expense_time','$expense_date')")) {
+    if (mysqli_query($con, "INSERT INTO expense (`expense_name`,`expense_note`,`expense_amount`,`expense_time`,`expense_date`,) VALUE ('$expense_name','$expense_note','$expense_amount','$expense_time','$expense_date')")) {
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("Expense Successfully Added!","Done!","success");';
       echo '}, 500);</script>';

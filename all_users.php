@@ -266,9 +266,9 @@ else {
                     <div class="card">
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_user.php';"
-                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Add User
+                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Tambah Pengguna
                             </button>
-                            <h3 class="card-title">All users information</h3>
+                            <h3 class="card-title">Informasi Pengguna</h3>
 
                         </div>
 
@@ -279,12 +279,13 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>User Name</th>
-                                    <th>User Email</th>
-                                    <th>User Phone</th>
+                                    <th>Nama Pengguna</th>
+                                    <th>Email Pengguna</th>
+                                    <th>Nomor Telepon</th>
                                     <th>User Type</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
@@ -301,7 +302,7 @@ else {
                                 <?php
 
                                 include('db_connect.php');
-                                $sql = "SELECT * FROM users ORDER BY id DESC";
+                                $sql = "SELECT * FROM users WHERE shop_id = $shop_id ORDER BY id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

@@ -16,12 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $suppliers_email = $_POST['suppliers_email'];
   $suppliers_phone = $_POST['suppliers_phone'];
   $suppliers_address = $_POST['suppliers_address'];
+  $shop_id = $_SESSION['shop_id'];
 
 
   include('db_connect.php');
 
 
-  $result = mysqli_query($con, "SELECT * FROM suppliers where suppliers_email='$suppliers_email' OR suppliers_cell='$suppliers_phone'");
+  $result = mysqli_query($con, "SELECT * FROM suppliers WHERE shop_id = $shop_id AND suppliers_email='$suppliers_email' OR suppliers_cell='$suppliers_phone'");
   $num_rows = mysqli_num_rows($result);
 
 
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'setTimeout(function () { swal.fire("ERROR!","suppliers already exists!","error");';
     echo '}, 500);</script>';
   } else {
-    if (mysqli_query($con, "INSERT INTO suppliers (`suppliers_name`,`suppliers_contact_person`,`suppliers_email`,`suppliers_cell`,`suppliers_address`) VALUE ('$suppliers_name','$suppliers_contact_person','$suppliers_email','$suppliers_phone','$suppliers_address')")) {
+    if (mysqli_query($con, "INSERT INTO suppliers (`suppliers_name`,`suppliers_contact_person`,`suppliers_email`,`suppliers_cell`,`suppliers_address`, `shop_id`) VALUE ('$suppliers_name','$suppliers_contact_person','$suppliers_email','$suppliers_phone','$suppliers_address','$shop_id')")) {
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("suppliers Successfully Added!","Done!","success");';
       echo '}, 500);</script>';

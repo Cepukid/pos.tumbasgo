@@ -289,6 +289,7 @@ else {
                                     <th>Stock</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
@@ -308,7 +309,7 @@ else {
                                 include('my_function.php');
                                 $currency = getCurrency();
 
-                                $sql = "SELECT * FROM products ORDER BY product_id DESC";
+                                $sql = "SELECT * FROM products WHERE shop_id = $shop_id ORDER BY product_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

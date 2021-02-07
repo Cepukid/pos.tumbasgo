@@ -270,6 +270,7 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>id_toko</th>
                                     <th>Shop Name</th>
                                     <th>Shop Email</th>
                                     <th>Shop Phone</th>
@@ -302,6 +303,7 @@ else {
                                     echo "<tr>";
 
                                     echo "<td>" . $i . "</td>";
+                                    echo "<td>" . $row['shop_id'] . "</td>";
                                     echo "<td><button class='btn btn-primary'/> <i class='fas fa-store-alt'></i> " . $row['shop_name'] . " ";
                                     echo "<td>" . $row['shop_email'] . "</td>";
                                     echo "<td>" . $row['shop_contact'] . "</td>";

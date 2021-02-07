@@ -286,11 +286,12 @@ else {
                                     <th>Expense Date</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
                                         ?>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
 
                                         <?php
                                     }
