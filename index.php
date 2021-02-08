@@ -398,7 +398,7 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
               <h3>Premium Spesial</h3>
-              <h4><sup>Rp</sup>100.000<span> / bulan</span></h4>
+              <h4><sup>Rp</sup>100.000<span> / tahun</span></h4>
               <ul>
                 <li>Unlimited produk</li>
                 <li>Bisa tambah 5 akun</li>
@@ -414,7 +414,7 @@
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in-left" data-aos-delay="200">
               <h3>Premium</h3>
-              <h4><sup>Rp</sup>10.000<span> / tahun</span></h4>
+              <h4><sup>Rp</sup>10.000<span> / bulan</span></h4>
               <ul>
               <li>Unlimited produk</li>
                 <li>Bisa tambah 5 akun</li>
