@@ -1,5 +1,6 @@
 <?php
 session_start();
+$shop_id = $_SESSION['shop_id'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -12,12 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $product_category_name = $_POST['product_category_name'];
-    $shop_id = $_SESSION['shop_id'];
+    //$shop_id = $_SESSION['shop_id'];
 
     include('db_connect.php');
 
 
-    $result = mysqli_query($con, "SELECT * FROM product_category WHERE shop_id=$shop_id product_category_name='$product_category_name'");
+    $result = mysqli_query($con, "SELECT * FROM product_category WHERE shop_id=$shop_id AND product_category_name='$product_category_name'");
     $num_rows = mysqli_num_rows($result);
 
 

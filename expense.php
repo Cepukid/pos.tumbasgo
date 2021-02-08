@@ -306,7 +306,7 @@ else {
                                 include('my_function.php');
                                 $currency = getCurrency();
 
-                                $sql = "SELECT * FROM expense ORDER BY expense_id DESC";
+                                $sql = "SELECT * FROM expense WHERE shop_id=$shop_id ORDER BY expense_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

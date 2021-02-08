@@ -38,10 +38,11 @@ function supplierName($suppliers_id)
 function getTotalExpense()
 {
     global $con;
+    $shop_id = $_SESSION['shop_id'];
 //  $result = mysqli_query($con,"SELECT SUM('product_price') AS value_sum FROM order_details");
 //  $row = mysqli_fetch_assoc($result);
 //  $sum = $row['value_sum'];
-    $sql = mysqli_query($con, "SELECT SUM(expense_amount) as total FROM expense");
+    $sql = mysqli_query($con, "SELECT SUM(expense_amount) as total FROM expense WHERE shop_id=$shop_id");
     $row = mysqli_fetch_array($sql);
     $sum = $row['total'];
 

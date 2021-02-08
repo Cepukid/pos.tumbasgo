@@ -1,5 +1,7 @@
 <?php
 session_start();
+  $shop_id = $_SESSION['shop_id'];
+
 if (isset($_SESSION['email']) and isset($_SESSION['user_type']) and isset($_SESSION['key']))
     echo " ";
 else {
@@ -282,6 +284,8 @@ else {
 
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
+
                                     if ($user_type == 'admin') {
 
 

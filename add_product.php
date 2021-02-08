@@ -1,5 +1,6 @@
 <?php
 session_start();
+$shop_id = $_SESSION['shop_id'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_sell_price = $_POST['product_price'];
   $product_stock = $_POST['product_stock'];
   $product_description = $_POST['product_description'];
-  $shop_id = $_SESSION['shop_id'];
+  //$shop_id = $_SESSION['shop_id'];
 
 
   //get file name
@@ -420,7 +421,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <?php
                       include('db_connect.php');
 
-                      $result = mysqli_query($con, "SELECT * FROM suppliers");
+                      $result = mysqli_query($con, "SELECT * FROM suppliers WHERE shop_id=$shop_id");
                       while ($row = mysqli_fetch_array($result)) {
                         echo "<option value='" . $row['suppliers_id'] . "'>" . $row['suppliers_name'] . "</option>";
 

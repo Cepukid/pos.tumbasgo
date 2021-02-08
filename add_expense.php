@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include('db_connect.php');
 
 
-  $result = mysqli_query($con, "SELECT * FROM expense WHERE expense_name='$expense_name' AND expense_note='$expense_note' AND expense_time='$expense_time' AND expense_date='$expense_date'");
+  $result = mysqli_query($con, "SELECT * FROM expense WHERE shop_id=$shop_id AND expense_name='$expense_name' AND expense_note='$expense_note' AND expense_time='$expense_time' AND expense_date='$expense_date'");
   $num_rows = mysqli_num_rows($result);
 
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'setTimeout(function () { swal.fire("ERROR!","Expense already exists!","error");';
     echo '}, 500);</script>';
   } else {
-    if (mysqli_query($con, "INSERT INTO expense (`expense_name`,`expense_note`,`expense_amount`,`expense_time`,`expense_date`,) VALUE ('$expense_name','$expense_note','$expense_amount','$expense_time','$expense_date')")) {
+    if (mysqli_query($con, "INSERT INTO expense (`expense_name`,`expense_note`,`expense_amount`,`expense_time`,`expense_date`,`shop_id`) VALUE ('$expense_name','$expense_note','$expense_amount','$expense_time','$expense_date','$shop_id')")) {
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("Expense Successfully Added!","Done!","success");';
       echo '}, 500);</script>';
