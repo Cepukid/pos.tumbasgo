@@ -20237,6 +20237,13 @@ html.maximized-card {
   margin-top: 10px;
 }
 
+.login-box button {
+  background-color: #414FB7;
+  color: #ffffff;
+}
+
+
+
 .login-logo,
 .register-logo {
   font-size: 5rem;

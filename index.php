@@ -25,6 +25,10 @@
   <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
+  <!-- slick carousel -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css'>
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -94,29 +98,21 @@
       <div class="container">
 
         <div class="row">
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
-          </div>
         
-          <div class="col-lg-2 col-md-4 col-6">
+          <div class="col-lg-3 col-md-4 col-6">
             <img src="assets/img/clients/ayam-geprek.png" class="img-fluid" alt="" data-aos="zoom-in">
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6">
+          <div class="col-lg-3 col-md-4 col-6">
             <img src="assets/img/clients/tumbasgo.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6">
+          <div class="col-lg-3 col-md-4 col-6">
             <img src="assets/img/clients/Logo.jpg" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
           </div>
 
-          <div class="col-lg-2 col-md-4 col-6">
+          <div class="col-lg-3 col-md-4 col-6">
             <img src="assets/img/clients/nasgorbas.jpeg" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
-          </div>
-
-          <div class="col-lg-2 col-md-4 col-6">
-            <img src="" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
           </div>
 
         </div>
@@ -134,7 +130,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-3 col-lg-6 d-flex align-items-stretch mb-3 mb-lg-0">
+          <div class="col-md-3 col-lg-6 d-flex align-items-stretch mb-3 mb-lg-0 card-manajemen col-sm-3">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/testimonials/menejemen.png" class="testimonial-img" alt="">
             <br>
@@ -272,64 +268,104 @@
     </section><!-- End Features Section -->
 
     
-    <!-- ======= Galerry Section ======= -->
+    <!-- ======= Tampilan APP ======= -->
     <section id="tampilan" class="team section-bg">
       <div class="container">
 
         <div class="section-title" data-aos="fade-up">
-          <h2 style="color: #414FB7;">Tampilan App KakaPos</h2>
+          <h2 style="color: #414FB7;">App KakaPos</h2>
           <p>Beberapa tampilan dari aplikasi KakaPos</p>
         </div>
-
-        <div class="row">
-            <div class="col-lg-3 col-md-6 d-flex">
+        <div class="row" id="slide">
+            <div class="col-lg-3 col-md-6">
               <div class="member" data-aos="fade-up" data-aos-delay="100">
                 <div class="member-img">
-                  <img src="assets/img/gallery/splashscreen.png" class="img-fluid" alt="">
+                  <img src="assets/img/gallery/1.png" class="img-fluid" alt="">
                 </div>
-                <div class="member-info">
-                  <h4 style="color: white;">Splash Screen</h4>
+               
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/2.png" class="img-fluid" alt="">
+                </div>
+               
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6" >
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/3.png" class="img-fluid" alt="">
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/4.png" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex ">
+            <div class="col-lg-3 col-md-6" >
               <div class="member" data-aos="fade-up" data-aos-delay="100">
                 <div class="member-img">
-                  <img src="assets/img/gallery/signin.png" class="img-fluid" alt="">
-                </div>
-                <div class="member-info">
-                  <h4 style="color: white;">Sign In</h4>
+                  <img src="assets/img/gallery/5.png" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex ">
+            <div class="col-lg-3 col-md-6" >
               <div class="member" data-aos="fade-up" data-aos-delay="100">
                 <div class="member-img">
-                  <img src="assets/img/gallery/Home.png" class="img-fluid" alt="">
-                </div>
-                <div class="member-info">
-                  <h4 style="color: white;">Home</h4>
+                  <img src="assets/img/gallery/6.png" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-6 d-flex ">
+            <div class="col-lg-3 col-md-6" >
               <div class="member" data-aos="fade-up" data-aos-delay="100">
                 <div class="member-img">
-                  <img src="assets/img/gallery/daftarproduk.png" class="img-fluid" alt="">
-                </div>
-                <div class="member-info">
-                  <h4 style="color: white;">Daftar Produk</h4>
+                  <img src="assets/img/gallery/7.png" class="img-fluid" alt="">
                 </div>
               </div>
             </div>
 
+            <div class="col-lg-3 col-md-6" >
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/8.png" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6" >
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/9.png" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6" >
+              <div class="member" data-aos="fade-up" data-aos-delay="100">
+                <div class="member-img">
+                  <img src="assets/img/gallery/10.png" class="img-fluid" alt="">
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
-    </section><!-- End Team Section -->
+    </section><!-- End Tampilan APP Section -->
+    
 
 
     <!-- ======= Pricing Section ======= -->
@@ -360,9 +396,9 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Premium</h3>
-              <h4><sup>Rp</sup>10.000<span> / bulan</span></h4>
+            <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
+              <h3>Premium Spesial</h3>
+              <h4><sup>Rp</sup>100.000<span> / bulan</span></h4>
               <ul>
                 <li>Unlimited produk</li>
                 <li>Bisa tambah 5 akun</li>
@@ -377,8 +413,8 @@
 
           <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in-left" data-aos-delay="200">
-              <h3>Ultimate</h3>
-              <h4><sup>Rp</sup>100.000<span> / tahun</span></h4>
+              <h3>Premium</h3>
+              <h4><sup>Rp</sup>10.000<span> / tahun</span></h4>
               <ul>
               <li>Unlimited produk</li>
                 <li>Bisa tambah 5 akun</li>
@@ -395,7 +431,7 @@
 
       </div>
     </section><!-- End Pricing Section -->
-
+    
   </main><!-- End #main -->
 
   
@@ -469,6 +505,19 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- slick carousel -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    $('#slide').slick({
+      
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 3,
+      autoplay:true,
+      dots : true
+    });
+  </script>			
 
 </body>
 

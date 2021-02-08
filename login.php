@@ -86,57 +86,125 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <b>Tumbas POS</b><br>Panel Admin
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">Silakan Masuk</p>
+<body class="hold-transition login-page" style="background-color: #ffffff;">
 
-      <form action="login.php" method="post">
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.php"><span></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <ul>
+          <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
+          &ensp;
+          <a href="index.php"><img src="assets/img/gallery/KakaPos.png " alt="" class="img-fluid"></a>
+
+        </ul>      
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password" required>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div>
 
-          <!-- /.col -->
-          <div>
-            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-          </div>
-          <!-- /.col -->
-
-        <?php
-          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo "<div  align='center'>" . $msg . "</div";
-          }
-          ?>
-
-        </div>
-      </form>
-
-
+        <nav class="nav-menu d-none d-lg-block">
+        <ul>
+         
+          <li class="get-started" style="color: #414FB7;"><a href="register.php">Daftar</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+ 
     </div>
-    <!-- /.login-card-body -->
-  </div>
-</div>
-<!-- /.login-box -->
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <div class="login-box">
+          <div class="login-logo" data-aos="fade-up">
+          <ul>
+          <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
+        </ul>      
+          </div>
+          <!-- /.login-logo -->
+          <div class="row ">
+            <div class="col-lg-6 pt-5  pt-lg-0 order-2 order-lg-1  flex-column justify-content-center">
+            <div class="login-box" data-aos="fade-up">
+                <form action="login.php" method="post">
+                  <p class="login-box-msg" data-aos="fade-up">Silakan Masukan Email dan Password</p>
+                  <div class="input-group mb-12 justify-content-center">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="input-group mb-12 justify-content-center">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+            </div>
+
+          </div>
+          
+                    <!-- /.col -->
+                    <br>
+                    <div class="login-box" data-aos="fade-up">
+                      <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                    </div>
+                    <!-- /.col -->
+
+                <?php
+                  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    echo "<div  align='center'>" . $msg . "</div";
+                  }
+                  ?>
+
+                </div>
+              </form>
+
+
+            </div>
+
+            
+            <!-- /.login-card-body -->
+          </div>
+        </div>
+        <!-- /.login-box -->
+
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+
+        </div>
+        
+     
+
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -144,6 +212,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
