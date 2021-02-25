@@ -7,6 +7,12 @@ else {
 
 }
 
+include('db_connect.php');
+$shop_id = $_SESSION['shop_id'];
+$sql = "SELECT * FROM users WHERE shop_id = $shop_id ORDER BY id DESC";
+$result = mysqli_query($con, $sql);
+$number_rows = mysqli_num_rows($result);
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -15,14 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user_phone = $_POST['user_phone'];
   $user_password = $_POST['user_password'];
   $user_type = $_POST['user_type'];
-  $shop_id = $_SESSION['shop_id'];
+  
 
   
 
-  include('db_connect.php');
+  // include('db_connect.php');
 
   $result = mysqli_query($con, "SELECT * FROM users WHERE shop_id = $shop_id AND email='$user_email' OR cell='$user_phone'");
   $num_rows = mysqli_num_rows($result);
+
+  $type = mysqli_query($con, "SELECT shop_type From shop WHERE shop_id='$shop_id'");
+  $shop_type = mysqli_num_rows($type);
 
 
   if ($num_rows > 0) {
@@ -465,9 +474,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <script type="text/javascript">
+var php_var = "<?php echo $number_rows; ?>";
+var shop_type = "<?php echo $shop_type; ?>";
 
+console.log(shop_type);
   $(document).on('click', '#add_user', function (e) {
     e.preventDefault();
+
+    if(php_var>1 && shop_type=="free"){
+      swal.fire("ERROR!","Maaf Jumlah User Anda Sudah melebihi batas!","error");
+    }else if(php_var>5 && shop_type=="premium"){
+      swal.fire("ERROR!","Maaf Jumlah User Anda Sudah melebihi batas!","error");
+    }else{
     Swal.fire({
       title: 'Want to add ?',
       text: 'Are you sure?',
@@ -483,6 +501,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       }
     })
+  }
 
   });
 </script>

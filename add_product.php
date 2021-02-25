@@ -1,6 +1,8 @@
 <?php
 session_start();
 $shop_id = $_SESSION['shop_id'];
+$shop_type = $_SESSION['shop_type'];
+
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -8,6 +10,11 @@ else {
 
 }
 
+
+include('db_connect.php');
+$sql = "SELECT * FROM products WHERE shop_id = $shop_id ORDER BY product_id DESC";
+$result = mysqli_query($con, $sql);
+$number_rows = mysqli_num_rows($result);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -20,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_sell_price = $_POST['product_price'];
   $product_stock = $_POST['product_stock'];
   $product_description = $_POST['product_description'];
+  //$shop_type = $_POST['shop_type'];
   //$shop_id = $_SESSION['shop_id'];
 
 
@@ -27,13 +35,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $filename = basename($_FILES['uploadedfile']['name']);
 
 
-  include('db_connect.php');
-
-
+  
   $result = mysqli_query($con, "SELECT * FROM products WHERE shop_id=$shop_id AND product_code='$product_code'");
   $num_rows = mysqli_num_rows($result);
+  $type = mysqli_query($con, "SELECT shop_type From shop WHERE shop_id='$shop_id'");
+  $shop_type = mysqli_num_rows($type);
 
-  if ($num_rows > 0) {
+
+  if ($num_rows > 0 ) {
     echo '<script type="text/javascript">';
     echo 'setTimeout(function () { swal.fire("ERROR!","product already exists!","error");';
     echo '}, 500);</script>';
@@ -51,18 +60,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       move_uploaded_file($_FILES["uploadedfile"]["tmp_name"], "product_images/" . $newfilename);
     }
 
+
     if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id')")) {
-      echo '<script type="text/javascript">';
-      echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
-      echo '}, 500);</script>';
+    echo '<script type="text/javascript">';
+    echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
+    echo '}, 500);</script>';
     } else {// display the error message
       echo '<script type="text/javascript">';
       echo 'setTimeout(function () { swal.fire("ERROR!","Something Wrong!","error");';
-      echo '}, 500);</script>';
+        echo '}, 500);</script>';
     }
 
 
   }
+  
 }
 ?>
 
@@ -596,9 +607,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <script type="text/javascript">
-
+  var php_var = "<?php echo $number_rows; ?>";
+  var shop_type = "<?php echo $shop_type; ?>";
+  
   $(document).on('click', '#add_product', function (e) {
     e.preventDefault();
+    if(php_var>25 && shop_type=="free"){
+      swal.fire("ERROR!","Maaf Jumlah Produk Anda Sudah melebihi batas!","error");
+    }else{
     Swal.fire({
       title: 'Want to add ?',
       text: 'Are you sure?',
@@ -614,6 +630,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       }
     })
+  }
 
   });
 </script>

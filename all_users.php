@@ -266,7 +266,7 @@ else {
                     <div class="card">
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_user.php';"
-                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Tambah Pengguna
+                                    class="btn btn-primary float-right" id="tambahuser"><i class='fas fa-plus-circle'></i> Tambah Pengguna
                             </button>
                             <h3 class="card-title">Informasi Pengguna</h3>
 
@@ -286,6 +286,7 @@ else {
                                     <?php
                                     $user_type = $_SESSION['user_type'];
                                     $shop_id = $_SESSION['shop_id'];
+                                    $shop_type = $_SESSION['shop_type'];
                                     if ($user_type == 'admin') {
 
 
@@ -304,6 +305,7 @@ else {
                                 include('db_connect.php');
                                 $sql = "SELECT * FROM users WHERE shop_id = $shop_id ORDER BY id DESC";
                                 $result = mysqli_query($con, $sql);
+                                $num_rows = mysqli_num_rows($result);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
@@ -410,6 +412,13 @@ else {
     $('.confirmation').on('click', function () {
         return confirm('Are you sure?');
     });
+    var php_var = "<?php echo $num_rows; ?>";
+    var shop_type = "<?php echo $shop_type?>";
+    if(php_var>1 && shop_type=="free"){
+        $("#tambahuser").attr("disabled","true");
+    } else if(php_var>5 && shop_type=="premium") {
+        $("#tambahuser").attr("disabled","true");
+    }
 </script>
 
 

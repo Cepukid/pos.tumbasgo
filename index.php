@@ -16,6 +16,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -29,8 +32,6 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css'>
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Vesperr - v2.3.0
@@ -130,7 +131,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-3 col-lg-6 d-flex align-items-stretch mb-3 mb-lg-0 card-manajemen col-sm-3">
+          <div class="col d-flex align-items-stretch mb-3 mb-lg-0 mx-auto card-manajemen">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
             <img src="assets/img/testimonials/menejemen.png" class="testimonial-img" alt="">
             <br>
@@ -140,7 +141,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-lg-6 d-flex align-items-stretch mb-3 mb-lg-0">
+          <div class="col d-flex align-items-stretch mb-3 mb-lg-0 mx-auto">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <img src="assets/img/testimonials/cetak.png" class="testimonial-img" alt="">
               <br>
@@ -157,7 +158,7 @@
 
         <div class="row">
           <br>
-            <div class="col-md-5 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col d-flex align-items-stretch mb-5 mb-lg-0">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <img src="assets/img/testimonials/transaksi.png" class="testimonial-img" alt="">
               <br>
@@ -167,7 +168,7 @@
               </div>
             </div>
   
-            <div class="col-md-5 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col d-flex align-items-stretch mb-5 mb-lg-0">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <img src="assets/img/testimonials/laporan.png" class="testimonial-img" alt="">
               <br>
@@ -177,7 +178,7 @@
               </div>
             </div>
   
-            <div class="col-md-5 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col d-flex align-items-stretch mb-5 mb-lg-0">
               <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
               <img src="assets/img/testimonials/cloud.png" class="testimonial-img" alt="">
               <br>
@@ -379,7 +380,7 @@
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+          <div class="col col-lg-4 col-md-6 text-center mx-auto mt-4 mt-md-0">
             <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
               <h3>Free 1 tahun</h3>
               <h4><sup>Rp</sup>0<span> / bulan</span></h4>
@@ -395,7 +396,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="col col-lg-4 col-md-6 text-center mx-auto mt-4 mt-md-0">
             <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
               <h3>Premium Spesial</h3>
               <h4><sup>Rp</sup>100.000<span> / tahun</span></h4>
@@ -411,7 +412,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+          <div class="col col-lg-4 col-md-6 text-center mx-auto mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in-left" data-aos-delay="200">
               <h3>Premium</h3>
               <h4><sup>Rp</sup>10.000<span> / bulan</span></h4>
@@ -439,7 +440,7 @@
   <footer id="footer">
     <div class="container">
       <div class="row d-flex">
-        <div class="col-lg-4 text-lg-left text-center">
+        <div class="col text-lg-left text-center">
           <div class="copyright">
             <a href="index.php"><img src="assets/img/gallery/KakaPos.png " alt="" class="img-fluid"></a>
             <br>
@@ -454,7 +455,7 @@
             Designed by <a href=" ">Kakatoo Digital Media</a>
           </div>
         </div>
-        <div class="col-lg-4" style="display: inline-block;">
+        <div class="col text-lg-center text-center" style="display: inline-block;">
         <div>
           <div class="info">
             <ul>
@@ -477,7 +478,7 @@
         </div>
 
       </div>
-        <div class="col-lg-4">
+        <div class="col text-lg-left text-center">
           <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
           <div>
           <a href="index.php" class="scrollto">Home</a>

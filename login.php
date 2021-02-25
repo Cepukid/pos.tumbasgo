@@ -50,14 +50,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['key']=mt_rand(1000,9999);
       $_SESSION['user_type'] = $row['user_type'];
       $_SESSION['shop_id'] = $row['shop_id'];
-
+      $shop_id= $_SESSION['shop_id'];
+      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id");
+      $rows = $result->fetch_assoc();
+      $_SESSION['shop_type']=$rows['shop_type'];
 
       header("location:dashboard.php");
     } else {
 
-
-      $msg = "<center><font  size='4px' face='Verdana' size='1' color='red'>Wrong Email or Password !!!.</font></center>";
-
+      $msg = "<center><font  size='3px' face='Verdana' size='1' color='red' align='center'>Wrong Email or Password !!!.</font></center>";
+      
     }
   }
 
@@ -133,17 +135,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
-      <div class="row justify-content-lg-center">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column text-center">
         <div class="login-box">
           <div class="login-logo" data-aos="fade-up">
           <ul>
-          <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
+          <img src="assets/img/gallery/logo.png " alt="" class="img-fluid">
         </ul>      
           </div>
           <!-- /.login-logo -->
-          <div class="row ">
-            <div class="col-lg-6 pt-5  pt-lg-0 order-2 order-lg-1  flex-column justify-content-center">
+          <!-- <div class="row "> -->
+            <div class="col-lg-6 pt-5  pt-lg-0 order-2 order-lg-1 d-flex flex-column text-center">
             <div class="login-box" data-aos="fade-up">
                 <form action="login.php" method="post">
                   <p class="login-box-msg" data-aos="fade-up">Silakan Masukan Email dan Password</p>
@@ -163,22 +165,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="fas fa-lock"></span>
                       </div>
                     </div>
-            </div>
 
-          </div>
+                    
+            </div>
+                      <?php
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                          echo "<div  align='center'>" . $msg . "</div";
+                        }
+                        ?>
+
           
                     <!-- /.col -->
+          <!-- </div> -->
                     <br>
                     <div class="login-box" data-aos="fade-up">
                       <button type="submit" class="btn btn-primary btn-block">Masuk</button>
                     </div>
                     <!-- /.col -->
 
-                <?php
-                  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    echo "<div  align='center'>" . $msg . "</div";
-                  }
-                  ?>
 
                 </div>
               </form>
@@ -191,10 +195,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
         </div>
         <!-- /.login-box -->
-
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-          <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
-        </div>
+            <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="fade-left" data-aos-delay="200">
+              <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            </div>
 
         </div>
         

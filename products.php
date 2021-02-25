@@ -1,12 +1,12 @@
 <?php
 session_start();
+
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
     header("location:index.php");
 
 }
-
 
 ?>
 
@@ -268,7 +268,7 @@ else {
                     <div class="card">
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_product.php';"
-                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Add Product
+                                    class="btn btn-primary float-right " id="btntambah"><i class='fas fa-plus-circle'></i> Add Product
                             </button>
                             <h3 class="card-title">All products information</h3>
 
@@ -290,6 +290,7 @@ else {
                                     <?php
                                     $user_type = $_SESSION['user_type'];
                                     $shop_id = $_SESSION['shop_id'];
+                                    $shop_type = $_SESSION['shop_type'];
                                     if ($user_type == 'admin') {
 
 
@@ -311,6 +312,7 @@ else {
 
                                 $sql = "SELECT * FROM products WHERE shop_id = $shop_id ORDER BY product_id DESC";
                                 $result = mysqli_query($con, $sql);
+                                $num_rows = mysqli_num_rows($result);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
@@ -422,6 +424,12 @@ else {
     $('.confirmation').on('click', function () {
         return confirm('Are you sure?');
     });
+    var php_var = "<?php echo $num_rows; ?>";
+    var shop_type = "<?php echo $shop_type; ?>";
+    
+    if(php_var>25 && shop_type=="free"){
+        $("#btntambah").attr("disabled","true");
+    }
 </script>
 
 
