@@ -99,11 +99,11 @@ function getMonthlySalesAmount($month, $getYear)
 
     global $con;
     $totalCost = 0;
-
+    $shop_id = $_SESSION['shop_id'];
     $year = $getYear;
 
 
-    $sql = "SELECT * FROM order_list WHERE  MONTH(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$year'";
+    $sql = "SELECT * FROM order_list WHERE shop_id=$shop_id AND MONTH(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$year'";
 
     //$sql="SELECT * FROM order_list";
 
@@ -130,11 +130,12 @@ function getMonthlyExpense($month, $getYear)
 
     global $con;
     $totalExpense = 0;
-
     $year = $getYear;
+    $shop_id = $_SESSION['shop_id'];
 
 
-    $sql = "SELECT * FROM expense WHERE  MONTH(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$year'";
+
+    $sql = "SELECT * FROM expense WHERE shop_id=$shop_id AND MONTH(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$year'";
 
     $result = mysqli_query($con, $sql);
 
@@ -192,6 +193,7 @@ function getProductStock($product_id)
     $product_stock = $product_data['product_stock'];
     return $product_stock;
 }
+
 
 
 

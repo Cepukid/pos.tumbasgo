@@ -1,3 +1,95 @@
+<?php
+session_start();
+
+$submit = "";
+$status1 = "OK";
+$msg1 = "";
+$passwordErr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $cell = $_POST['no_hp'];
+  $password = $_POST['password'];
+  $password2 = $_POST['password2'];
+  $shop_name = $_POST['shop_name'];
+  $shop_contact = $_POST['no_hp'];
+  $shop_address = $_POST['alamat'];
+
+  
+
+  if (empty($name)){
+    $msg1 .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Tolong Masukkan Nama anda. </font></center>";
+
+    $status1 = "NOTOK";
+  }
+
+  if (empty($email)){
+    $msg1 .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Tolong Masukkan Email anda. </font></center>";
+
+    $status1 = "NOTOK";
+  }
+  
+  if (empty($cell)){
+    $msg1 .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Tolong Masukkan No. Handphone anda. </font></center>";
+
+    $status1 = "NOTOK";
+  }
+
+  if (empty($password)){
+    $msg1 .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Tolong Masukkan Kata sandi anda. </font></center>";
+
+    $status1 = "NOTOK";
+  }
+
+  if (empty($password2)){
+    $msg1 .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Mohon Ulang Kata sandi anda. </font></center>";
+
+    $status1 = "NOTOK";
+  }
+
+
+  if ($status1 == "OK") {
+    include('db_connect.php');
+
+      $cek_username=mysqli_num_rows(mysqli_query ("SELECT name FROM users WHERE name='$_POST[name]'"));
+      // Kalau username sudah ada yang pakai
+          if ($cek_username > 0){
+          echo "Username sudah ada yang pakai. Ulangi lagi";
+        }
+
+        if (($_POST['password'])!= ($_POST['password2'])){
+          //Cek Password sama atau tidak
+          $msg1 = "<center><font  size='4px' face='Verdana' size='1' color='red'>Konfirmasi Sandi salah.</font></center>";
+          
+        }
+        else {
+              $tambah =  "INSERT INTO shop (`shop_name`,`shop_contact`,`shop_email`,`shop_address`,`tax`,currency_symbol,`shop_status`) VALUE ('$shop_name','$shop_contact','$email','$shop_address','0','Rp','OPEN')";
+              
+              if(mysqli_query($con, $tambah)){
+                $id=mysqli_insert_id($con);
+                $tambah1 =  "INSERT INTO users (`name`,`cell`,`email`,`password`,`user_type`,`shop_id`) VALUE ('$name','$cell','$email','$password','admin','$id')";
+                if(mysqli_query($con, $tambah1)){
+
+                }else{
+                  echo "yy";
+                }
+              }
+              else {
+                echo "hagfdsg";
+              }
+          }
+            
+            
+      }
+       
+}
+
+
+?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +99,6 @@
   <title>Kaka POS | Registrasi</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -51,10 +142,19 @@
         <h3 class="login-box-msg">Daftar Akun</h3>
       <p class="login-box-msg">Silakan Mengisikan data berikut</p>
 
-      <form action="" method="post">
+      <form action="register.php" method="POST">
         
             <div class="input-group mb-3">
-              <input type="name" class="form-control" name="username" placeholder="Nama Lengkap" required>
+              <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <!--<span class="fas fa-envelope"></span>-->
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <!--<span class="fas fa-envelope"></span>-->
@@ -63,7 +163,7 @@
             </div>
             
             <div class="input-group mb-3">
-              <input type="email" class="form-control" name="email" placeholder="Email" required>
+              <input type="text" class="form-control" name="email" placeholder="Email" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <!--<span class="fas fa-envelope"></span>-->
@@ -72,7 +172,7 @@
             </div>
             
             <div class="input-group mb-3">
-              <input type="password" class="form-control" name="no_hp" placeholder="No. HP" required>
+              <input type="text" onkeypress="return angkahp(event)" maxlength="12" minlength="11" class="form-control" name="no_hp" placeholder="No. HP" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   
@@ -81,7 +181,16 @@
             </div>
 
             <div class="input-group mb-3">
-              <input type="password" class="form-control" name="password" placeholder="Password" required>
+              <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" name="password" id="password" maxlength="8" minlength="8" placeholder="Password" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -91,7 +200,7 @@
             <div>
 
             <div class="input-group mb-3">
-              <input type="password" class="form-control" name="password2" placeholder="Konfirmasi Password" required>
+              <input type="password" class="form-control" name="password2" id="password2" maxlength="8" minlength="8" placeholder="Konfirmasi Password" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -114,7 +223,7 @@
 
         <?php
           if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo "<div  align='center'>" . $msg . "</div";
+            echo "<div  align='center'>" . $msg1 . "</div";
           }
           ?>
 
@@ -131,6 +240,16 @@
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
+<!-- Pembatassan Angka no HP-->
+<script type="text/javascript">
+
+function angkahp(evt) {
+var charCode = (evt.which) ? evt.which : event.keyCode
+if (charCode > 31 && (charCode < 48 || charCode > 57))
+return false;
+return true;
+}
+</script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->

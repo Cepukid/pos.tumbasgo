@@ -3,7 +3,6 @@ session_start();
 
 
 $submit = "";
-
 $status = "OK";
 $msg = "";
 
@@ -34,9 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if ($status == "OK") {
 
     include('db_connect.php');
-
-
-//   include('db_connect.php');
 
     $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' and password='$password'");
 

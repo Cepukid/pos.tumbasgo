@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['email']) and isset($_SESSION['user_type']) and isset($_SESSION['key']))
+if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']))
     echo " ";
 else {
     header("location:index.php");
@@ -270,7 +270,6 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>id_toko</th>
                                     <th>Shop Name</th>
                                     <th>Shop Email</th>
                                     <th>Shop Phone</th>
@@ -280,6 +279,7 @@ else {
                                     <th>Shop Status</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
                                     if ($user_type == 'admin') {
 
 
@@ -296,14 +296,14 @@ else {
                                 <?php
 
                                 include('db_connect.php');
-                                $sql = "SELECT * FROM shop";
+                                $sql = "SELECT * FROM shop WHERE shop_id=$shop_id";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
 
                                     echo "<td>" . $i . "</td>";
-                                    echo "<td>" . $row['shop_id'] . "</td>";
+                                    //echo "<td>" . $row['shop_id'] . "</td>";
                                     echo "<td><button class='btn btn-primary'/> <i class='fas fa-store-alt'></i> " . $row['shop_name'] . " ";
                                     echo "<td>" . $row['shop_email'] . "</td>";
                                     echo "<td>" . $row['shop_contact'] . "</td>";
