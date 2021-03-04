@@ -109,133 +109,154 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 <body class="">
-  <nav class="navbar" style="margin-left=10px">
-    <a class="navbar-brand" href="index.php">
-    &ensp;
-    &ensp;
-    &ensp;
-    &ensp;
-    <img src="logo.png" height="50px">
-    &ensp;
-    <img src="KakaPos.png" height="20px">
-    </a>
-  </nav>
-  <div class="container">
-              <!--<div class="login-box">
-              
-                    <div class="login-logo">
-                      <h1><b>KakaPos</b></h1>  
-                    </div>
-               /.login-logo -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
 
-    <div class="row justify-content-center" style="margin:0;">
-    <div class="img1 col-lg-5">
-    &ensp;
-      <img src="3.png" style="background-size: 360px 480px;">
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.php"><span></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <ul>
+          <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
+          &ensp;
+          <a href="index.php"><img src="assets/img/gallery/KakaPos.png " alt="" class="img-fluid"></a>
+
+        </ul>      
+        </div>
+
+      </nav><!-- .nav-menu -->
+ 
     </div>
+  </header>
+  <!-- End Header -->
 
-    <div class="col col-lg-5">
-   <div class="cardregis">
-    <div class="card-body login-card-body">
-        <h3 class="login-box-msg">Daftar Akun</h3>
-      <p class="login-box-msg">Silakan Mengisikan data berikut</p>
+  <section id="hero" class="d-flex align-items-center">
 
-      <form action="register.php" method="POST">
-        
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <!--<span class="fas fa-envelope"></span>-->
-                </div>
-              </div>
-            </div>
 
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <!--<span class="fas fa-envelope"></span>-->
-                </div>
-              </div>
-            </div>
-            
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="email" placeholder="Email" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <!--<span class="fas fa-envelope"></span>-->
-                </div>
-              </div>
-            </div>
-            
-            <div class="input-group mb-3">
-              <input type="text" onkeypress="return angkahp(event)" maxlength="12" minlength="11" class="form-control" name="no_hp" placeholder="No. HP" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  
-                </div>
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  
-                </div>
-              </div>
-            </div>
-
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" name="password" id="password" maxlength="8" minlength="8" placeholder="Password" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
-                </div>
-              </div>
-            </div>
-            <div>
-
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" name="password2" id="password2" maxlength="8" minlength="8" placeholder="Konfirmasi Password" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
-                </div>
-              </div>
-            </div>
-            <div>
-
-            
-        </div>
-        </div>
-
-        
-
-          <!-- /.col -->
-          <div>
-            <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+        <div class="container">
+          <div class="row justify-content-center" style="margin:0;">
+          <div class="col col-lg-6  pt-5 d-flex text-center">
+            &ensp;
+            <img src="3.png">
           </div>
-          <!-- /.col -->
 
-        <?php
-          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            echo "<div  align='center'>" . $msg1 . "</div";
-          }
-          ?>
+          <div class="col col-lg-6">
+        <div class="cardregis">
+          <div class="card-body login-card-body">
+              <h3 class="login-box-msg">Daftar Akun</h3>
+            <p class="login-box-msg">Silakan Mengisikan data berikut</p>
 
-        </div>
-      </form>
+            <form action="register.php" method="POST">
+              
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <!--<span class="fas fa-envelope"></span>-->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <!--<span class="fas fa-envelope"></span>-->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <!--<span class="fas fa-envelope"></span>-->
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="text" onkeypress="return angkahp(event)" maxlength="12" minlength="11" class="form-control" name="no_hp" placeholder="No. HP" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password" id="password" maxlength="8" minlength="8" placeholder="Password" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+
+                  <div class="input-group mb-3">
+                    <input type="password" class="form-control" name="password2" id="password2" maxlength="8" minlength="8" placeholder="Konfirmasi Password" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+
+                  
+              </div>
+              </div>
+
+              
+
+                <!-- /.col -->
+                <div>
+                  <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                </div>
+                <!-- /.col -->
+
+              <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                  echo "<div  align='center'>" . $msg1 . "</div";
+                }
+                ?>
+
+              </div>
+            </form>
 
 
-    </div>
-    <!-- /.login-card-body -->
-    </div>
- </div>
-</div>
+          </div>
+          <!-- /.login-card-body -->
+          </div>
+      </div>
+      </div>
+
+  </section>
 <!-- /.login-box -->
 
 <!-- jQuery -->
@@ -254,6 +275,29 @@ return true;
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>

@@ -18,6 +18,7 @@ else {
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Dashboard </title>
+  <link href="assets/img/gallery/logo.png" rel="icon">
 
 
   <!--chart-->
