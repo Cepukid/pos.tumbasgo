@@ -6,7 +6,7 @@ $shop_type = $_SESSION['shop_type'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_sell_price = $_POST['product_price'];
   $product_stock = $_POST['product_stock'];
   $product_description = $_POST['product_description'];
+  $product_buy = $_POST['product_buy'];
   //$shop_type = $_POST['shop_type'];
   //$shop_id = $_SESSION['shop_id'];
 
@@ -61,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id')")) {
+    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_buy`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`,`shop_type`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_buy','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id','$shop_type')")) {
     echo '<script type="text/javascript">';
     echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
     echo '}, 500);</script>';
@@ -139,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="dist/img/AdminLTELogo.png"
@@ -347,14 +348,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="card-body">
 
                 <div class="form-group">
-                  <label for="exampleInputProductName">Product Name</label>
+                  <label for="exampleInputProductName">Nama Produk</label>
                   <input type="text" name="product_name" class="form-control" id="exampleInputProductName"
                          placeholder="Enter Product Name">
                 </div>
 
 
                 <div class="form-group">
-                  <label for="exampleInputProductCode">Product Code</label>
+                  <label for="exampleInputProductCode">Kode Produk</label>
                   <input type="text" name="product_code" class="form-control" id="exampleInputProductCode"
                          placeholder="Enter product code">
                 </div>
@@ -363,7 +364,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
 
                   <div class="form-group">
-                    <label for="exampleInputCategory">Product Category</label>
+                    <label for="exampleInputCategory">Kategori Produk</label>
                     <select class="form-control" name="product_category_id" id="exampleInputCategory">
 
 
@@ -383,29 +384,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div class="form-group">
-                  <label for="exampleInputDescription">Product Description</label>
+                  <label for="exampleInputDescription">Diskripsi Produk</label>
                   <input type="tel" name="product_description" class="form-control" id="exampleInputDescription"
                          placeholder="Enter product description">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputPrice">Product Price</label>
+                  <label for="exampleInputPrice">Harga Beli Produk</label>
+                  <input type="number" name="product_buy" class="form-control" id="exampleInputPrice"
+                         placeholder="Enter buy product price">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPrice">Harga Jual Produk</label>
                   <input type="number" name="product_price" class="form-control" id="exampleInputPrice"
                          placeholder="Enter product price">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputWeight">Product Weight</label>
+                  <label for="exampleInputWeight">Berat Produk</label>
                   <input type="number" name="product_weight" class="form-control" id="exampleInputPrice"
                          placeholder="Enter product weight">
 
 
                 </div>
+                
 
                 <div class="form-group">
 
                   <div class="form-group">
-                    <label for="exampleInputWeightUnit">Product Weight Unit</label>
+                    <label for="exampleInputWeightUnit">Kategori Berat</label>
                     <select class="form-control" name="product_weight_unit_id">
 
 
@@ -427,7 +435,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
 
                   <div class="form-group">
-                    <label for="exampleInputSupplier">Product Supplier</label>
+                    <label for="exampleInputSupplier">Suplier Produk</label>
                     <select class="form-control" name="product_supplier_id">
 
                       <?php
@@ -445,14 +453,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputStock">Product Stock</label>
+                  <label for="exampleInputStock">Stok Produk</label>
                   <input type="number" name="product_stock" class="form-control" id="exampleInputStock"
                          placeholder="Enter product stock">
                 </div>
 
 
                 <div class="form-group ">
-                  <label for="exampleInputImage">Product Image</label>
+                  <label for="exampleInputImage">Gambar Produk</label>
 
 
                   <div class="custom-file">
@@ -532,6 +540,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         product_description: {
           required: true,
         },
+
+        product_buy{
+          required: true,
+        },
+
         product_price: {
           required: true,
         },
@@ -566,6 +579,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         },
         product_description: {
           required: "Please enter product description"
+        },
+
+        product_buy: {
+          required: "Please enter buy product price"
         },
 
         product_price: {
@@ -613,8 +630,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $(document).on('click', '#add_product', function (e) {
     e.preventDefault();
-    if(php_var>25 && shop_type=="free"){
-      swal.fire("ERROR!","Maaf Jumlah Produk Anda Sudah melebihi batas!","error");
+    if(php_var>11 && shop_type=="free"){
+      swal.fire("OOPS!","Maaf Jumlah Produk Anda Sudah melebihi batas!","error");
     }else{
     Swal.fire({
       title: 'Want to add ?',
