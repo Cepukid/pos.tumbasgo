@@ -30,13 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $status = "NOTOK";
     }
 
-    if (empty($email && $password)){
-
-    $msg = "<div class='alert alert-danger'> Silahkan Masukan Email dan Password !</div>"; 
-
-    $status = "NOTOK";
-    }
-
   if ($status == "OK") {
 
     include('db_connect.php');
@@ -61,9 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       header("location:dashboard.php");
     } else {
 
-        echo '<script type="text/javascript">
-        alert("Ada Kesalahan pada Email atau Password !!!");
-        </script>'; 
+      $msg = "<div class='alert alert-danger'> Ada Kesalahan Pada Email atau Password !</div>";
       
     }
   }
@@ -139,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="container">
         <div class="row">
-            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-right">
             <!-- form login -->
             <form action="login.php" method="post">
                 <div class="form-group">
@@ -162,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                     ?>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
             </form>
             <!-- end form login -->
             </div>
