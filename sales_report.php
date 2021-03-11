@@ -320,9 +320,9 @@ else {
 
 
 
-                                echo "<th>Total Order Price $" . $total_price . "</th>";
-                                echo "<th>Total Tax =".getCurrency() . $total_tax . "</th>";
-                                echo "<th>Total Discount=".getCurrency() . $total_discount . "</th>";
+                                echo "<th>Total Harga pesanan Rp" . $total_price . "</th>";
+                                echo "<th>Total Pajak =".getCurrency() . $total_tax . "</th>";
+                                echo "<th>Total Diskon=".getCurrency() . $total_discount . "</th>";
                                 echo "<th>Net Sales=".getCurrency() . $net_sales . "</th>";
                                 echo "<th></th>";
 

@@ -269,9 +269,9 @@ else {
                     <div class="card">
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_product.php';"
-                                    class="btn btn-primary float-right " id="btntambah"><i class='fas fa-plus-circle'></i> Add Product
+                                    class="btn btn-primary float-right " id="btntambah"><i class='fas fa-plus-circle'></i> Tambah Produk
                             </button>
-                            <h3 class="card-title">All products information</h3>
+                            <h3 class="card-title">Semua Informasi Produk</h3>
 
                         </div>
 
@@ -282,12 +282,14 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Product Code</th>
-                                    <th>Price</th>
-                                    <th>Weight</th>
+                                    <th>Nama</th>
+                                    <th>Kode Produk</th>
+                                    <th>Harga jual</th>
+                                    <th>Harga beli</th>
+                                    <th>Keterangan Lokasi</th>
+                                    <th>Berat</th>
                                     <th>Supplier</th>
-                                    <th>Stock</th>
+                                    <th>Stok</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
                                     $shop_id = $_SESSION['shop_id'];
@@ -296,7 +298,7 @@ else {
 
 
                                         ?>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
 
                                         <?php
                                     }
@@ -323,6 +325,8 @@ else {
                                     echo "<td>" . $row['product_name'] . "</td>";
                                     echo "<td>" . $row['product_code'] . "</td>";
                                     echo "<td>" . $currency . $row['product_sell_price'] . "</td>";
+                                    echo "<td>" . $currency . $row['product_buy'] . "</td>";
+                                    echo "<td>" . $row['product_location'] . "</td>";
                                     echo "<td>" . $row['product_weight'] . weightUnit($row['product_weight_unit_id']) . "</td>";
                                     echo "<td>" . supplierName($row['product_supplier_id']) . "</td>";
                                     echo "<td>" . $row['product_stock'] . "</td>";

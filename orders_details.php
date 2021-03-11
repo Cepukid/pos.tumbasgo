@@ -284,8 +284,9 @@ else {
                 include("my_function.php");
                 $getid = $_GET['id'];
                 $currency = getCurrency();
+                $shop_id = $_SESSION['shop_id'];
 
-                $result = mysqli_query($con, "SELECT * FROM order_details WHERE invoice_id='$getid'");
+                $result = mysqli_query($con, "SELECT * FROM order_details WHERE shop_id = $shop_id AND invoice_id='$getid'");
 
 
                 $i = 1;

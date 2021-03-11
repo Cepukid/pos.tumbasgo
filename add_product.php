@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $product_weight = $_POST['product_weight'];
   $product_weight_unit_id = $_POST['product_weight_unit_id'];
   $product_sell_price = $_POST['product_price'];
+  $product_location = $_POST['product_location'];
   $product_stock = $_POST['product_stock'];
   $product_description = $_POST['product_description'];
   $product_buy = $_POST['product_buy'];
-  //$shop_type = $_POST['shop_type'];
-  //$shop_id = $_SESSION['shop_id'];
+
 
 
   //get file name
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_buy`,`product_sell_price`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`,`shop_type`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_buy','$product_sell_price','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id','$shop_type')")) {
+    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_buy`,`product_sell_price`,`product_location`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`,`shop_type`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_buy','$product_sell_price','$product_location','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id','$shop_type')")) {
     echo '<script type="text/javascript">';
     echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
     echo '}, 500);</script>';
@@ -172,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="customers.php" class="nav-link ">
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
-                Customers
+                Pelanggan
 
               </p>
             </a>
@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="suppliers.php" class="nav-link">
               <i class="nav-icon fas fa-people-carry"></i>
               <p>
-                Suppliers
+                Supplier
 
               </p>
             </a>
@@ -193,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="category.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Products Category
+                kategori Produk
 
               </p>
             </a>
@@ -203,7 +203,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="products.php" class="nav-link active">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                Products
+                Produk
 
               </p>
             </a>
@@ -214,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="orders.php" class="nav-link">
               <i class="nav-icon fas fa-sort-amount-up"></i>
               <p>
-                Orders
+                Pesanan
 
               </p>
             </a>
@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="expense.php" class="nav-link">
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
-                Expense
+                Pengeluaran
               </p>
             </a>
           </li>
@@ -234,7 +234,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Reports
+                Laporan
                 <i class="right fas fa-angle-left"></i>
 
               </p>
@@ -244,27 +244,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <li class="nav-item">
                 <a href="sales_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Report</p>
+                  <p>Laporan Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="expense_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Report</p>
+                  <p>laporan Pengeluaran</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="sales_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Chart </p>
+                  <p>Grafik Penjualan </p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="expense_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Chart</p>
+                  <p>Grafik Pengeluaran</p>
                 </a>
               </li>
 
@@ -277,7 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="products.php" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                Pengaturan
                 <i class="right fas fa-angle-left"></i>
 
               </p>
@@ -287,13 +287,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <li class="nav-item">
                 <a href="shop_information.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Shop Information</p>
+                  <p>Informasi Toko</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="all_users.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
+                  <p>Semua Pengguna</p>
                 </a>
               </li>
             </ul>
@@ -304,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="logout.php" class="nav-link">
               <i class="nav-icon fas fa-power-off"></i>
               <p>
-                Logout
+                Keluar
               </p>
             </a>
           </li>
@@ -339,7 +339,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="card">
             <div class="card-header">
 
-              <h3 class="card-title">Add product information</h3>
+              <h3 class="card-title">Tambah informasi produk</h3>
 
             </div>
 
@@ -350,14 +350,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                   <label for="exampleInputProductName">Nama Produk</label>
                   <input type="text" name="product_name" class="form-control" id="exampleInputProductName"
-                         placeholder="Enter Product Name">
+                         placeholder="Masukkan Nama produk">
                 </div>
 
 
                 <div class="form-group">
                   <label for="exampleInputProductCode">Kode Produk</label>
                   <input type="text" name="product_code" class="form-control" id="exampleInputProductCode"
-                         placeholder="Enter product code">
+                         placeholder="Masukkan Kode produk">
                 </div>
 
 
@@ -384,28 +384,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div class="form-group">
-                  <label for="exampleInputDescription">Diskripsi Produk</label>
-                  <input type="tel" name="product_description" class="form-control" id="exampleInputDescription"
-                         placeholder="Enter product description">
+                  <label for="exampleInputDescription">Deskripsi Produk</label>
+                  <input type="text" name="product_description" class="form-control" id="exampleInputDescription"
+                         placeholder="Masukkan Deskripsi produk">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPrice">Harga Beli Produk</label>
                   <input type="number" name="product_buy" class="form-control" id="exampleInputPrice"
-                         placeholder="Enter buy product price">
+                         placeholder="Masukkan Harga beli produk">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputPrice">Harga Jual Produk</label>
                   <input type="number" name="product_price" class="form-control" id="exampleInputPrice"
-                         placeholder="Enter product price">
+                         placeholder="Masukkan harga jual produk">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputProductCode">Lokasi Penyimpanan</label>
+                  <input type="text" name="product_location" class="form-control" id="exampleInputProductlocation"
+                         placeholder="Masukkan Lokasi rak">
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputWeight">Berat Produk</label>
                   <input type="number" name="product_weight" class="form-control" id="exampleInputPrice"
-                         placeholder="Enter product weight">
-
+                         placeholder="Masukkan berat produk">
 
                 </div>
                 

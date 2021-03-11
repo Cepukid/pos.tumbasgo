@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 
@@ -10,31 +11,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $password = md5($password);
 
 //$id=md5($id1);
 //$password=md5($password1);
 
 
-    if (empty($email)) {
-        
-      $msg = "<div class='alert alert-danger'> Silahkan Masukan Email !</div>"; 
-      
-      
-      $status = "NOTOK";
-      
-    }
+  if (empty($email)) {
+    $msg .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Please Enter Your email. </font></center>";
 
-    if (empty($password)) {
-      $msg = "<div class='alert alert-danger '> Silahkan Masukan Password !</div>"; 
-      
-      $status = "NOTOK";
-    }
+    $status = "NOTOK";
+
+  }
+
+  if (empty($password)) {
+    $msg .= "<center><font  size='4px' face='Verdana' size='1' color='red'>Please Enter Your password.</font></center>";
+
+    $status = "NOTOK";
+  }
 
   if ($status == "OK") {
 
     include('db_connect.php');
 
-    $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' and password='$password'");
+    $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' AND password='$password' AND verifikasi ='Aktif' ");
 
     $count = mysqli_num_rows($result);
 
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       header("location:dashboard.php");
     } else {
 
-      $msg = "<div class='alert alert-danger'> Ada Kesalahan Pada Email atau Password !</div>";
+      $msg = "<center><font  size='3px' face='Verdana' size='1' color='red' align='center'>Wrong Email or Password !!!.</font></center>";
       
     }
   }
@@ -70,8 +70,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Tumbas POS | Masuk</title>
+  <title>KakaPos | Masuk</title>
+
+  <!-- Favicon -->
   <link href="assets/img/gallery/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -100,75 +104,110 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
-<body>
-        <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center">
+<body class="hold-transition login-page" style="background-color: #ffffff;">
 
-        <div class="logo mr-auto">
-            <h1 class="text-light"><a href="index.php"><span></span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <ul>
-            <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
-            &ensp;
-            <a href="index.php"><img src="assets/img/gallery/KakaPos.png " alt="" class="img-fluid"></a>
 
-            </ul>      
-            </div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.php"><span></span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <ul>
+          <a href="index.php"><img src="assets/img/gallery/logo.png " alt="" class="img-fluid"></a>
+          &ensp;
+          <a href="index.php"><img src="assets/img/gallery/KakaPos.png " alt="" class="img-fluid"></a>
+
+        </ul>      
+        </div>
 
         <nav class="nav-menu d-none d-lg-block">
-            <ul>
-            <li class="get-started" style="color: #414FB7;"><a href="register.php">Registrasi</a></li>
-            </ul>
-        </nav><!-- .nav-menu -->
-    
-        </div>
-    </header><!-- End Header -->
-    
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+        <ul>
+         
+          <li class="get-started" style="color: #414FB7;"><a href="register.php">Daftar</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+ 
+    </div>
+  </header><!-- End Header -->
 
-        <div class="container">
-        <div class="row">
-            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-right">
-            <!-- form login -->
-            <form action="login.php" method="post">
-                <div class="form-group">
-                    <ul class="text-center">
-                    <img src="assets/img/gallery/logo.png " alt="" class="img-fluid">
-                    &ensp;
-                    <p>Silakan Masukan Email dan Password !</p>
-                    </ul>
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="password">
-                </div>
-                <div>
-                    <?php
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column text-center">
+        <div class="login-box">
+          <div class="login-logo" data-aos="fade-up">
+          <ul>
+          <img src="assets/img/gallery/logo.png " alt="" class="img-fluid">
+        </ul>      
+          </div>
+          <!-- /.login-logo -->
+          <!-- <div class="row "> -->
+            <div class="col-lg-6 pt-5  pt-lg-0 order-2 order-lg-1 d-flex flex-column text-center">
+            <div class="login-box" data-aos="fade-up">
+                <form action="login.php" method="post">
+                  <p class="login-box-msg" data-aos="fade-up">Silakan Masukan Email dan Password</p>
+                  <div class="input-group mb-12 justify-content-center">
+                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="input-group mb-12 justify-content-center">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+
+                    
+            </div>
+                      <?php
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                        echo "<div  align='center'>" . $msg . "</div>";
+                          echo "<div  align='center'>" . $msg . "</div";
                         }
-                    ?>
+                        ?>
+
+          
+                    <!-- /.col -->
+          <!-- </div> -->
+                    <br>
+                    <div class="login-box" data-aos="fade-up">
+                      <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                    </div>
+                    <!-- /.col -->
+
+
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
-            </form>
-            <!-- end form login -->
+              </form>
+
+
             </div>
-            <!-- gambar -->
 
-            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-            <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
+            
+            <!-- /.login-card-body -->
+          </div>
+        </div>
+        <!-- /.login-box -->
+            <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="fade-left" data-aos-delay="200">
+              <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
             </div>
+
         </div>
-        </div>
+        
+     
 
-    </section><!-- End Hero -->
+      </div>
+    </div>
 
-
-
+  </section><!-- End Hero -->
 
 
 <!-- jQuery -->

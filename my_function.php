@@ -60,6 +60,15 @@ function getTotalOrderPrice()
     return $sum;
 }
 
+function getTotalLaba()
+{
+    global $con;
+    $result = mysqli_query($con, "SELECT SUM(product_buy) AS value_sum FROM products");
+    $row = mysqli_fetch_assoc($result);
+    $sum = $row['value_sum'];
+
+    return $sum;
+}
 
 function getTotalDiscount()
 {
@@ -145,6 +154,29 @@ function getMonthlyExpense($month, $getYear)
     }
 
     return $totalExpense;
+
+}
+
+function getMonthlylaba($month, $getYear)
+{
+
+    global $con;
+    $total_laba = 0;
+    $year = $getYear;
+    $shop_id = $_SESSION['shop_id'];
+
+
+
+    $sql = "SELECT * FROM expense WHERE shop_id = $shop_id AND MONTH(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$year'";
+
+    $result = mysqli_query($con, $sql);
+
+    while ($row = mysqli_fetch_array($result)) {
+        $cost = floatval($row['expense_amount']);
+        $totalExpense = $totalExpense_amount + $cost;
+    }
+
+    return $totalExpense_amount;
 
 }
 
