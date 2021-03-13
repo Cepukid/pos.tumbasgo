@@ -49,11 +49,25 @@ function getTotalExpense()
     return $sum;
 }
 
+function getTotalIncome()
+{
+    global $con;
+    $shop_id = $_SESSION['shop_id'];
+//  $result = mysqli_query($con,"SELECT SUM('product_price') AS value_sum FROM order_details");
+//  $row = mysqli_fetch_assoc($result);
+//  $sum = $row['value_sum'];
+    $sql = mysqli_query($con, "SELECT SUM (income_amount) as total FROM income WHERE shop_id = $shop_id");
+    $row = mysqli_fetch_array($sql);
+    $sum = $row['total'];
+
+    return $sum;
+}
 
 function getTotalOrderPrice()
 {
     global $con;
-    $result = mysqli_query($con, "SELECT SUM(product_price) AS value_sum FROM order_details");
+    $shop_id = $_SESSION['shop_id'];
+    $result = mysqli_query($con, "SELECT SUM(product_price) AS value_sum FROM order_details WHERE shop_id = $shop_id");
     $row = mysqli_fetch_assoc($result);
     $sum = $row['value_sum'];
 
@@ -63,6 +77,7 @@ function getTotalOrderPrice()
 function getTotalLaba()
 {
     global $con;
+    $shop_id = $_SESSION['shop_id'];
     $result = mysqli_query($con, "SELECT SUM(product_buy) AS value_sum FROM products");
     $row = mysqli_fetch_assoc($result);
     $sum = $row['value_sum'];
@@ -94,7 +109,8 @@ function getTotalTax()
 function getCurrency()
 {
     global $con;
-    $result = mysqli_query($con, "SELECT currency_symbol FROM shop WHERE shop_id=1 ");
+    $shop_id = $_SESSION['shop_id'];
+    $result = mysqli_query($con, "SELECT currency_symbol FROM shop WHERE shop_id = $shop_id ");
     $row = mysqli_fetch_assoc($result);
     $currency = $row['currency_symbol'];
 
@@ -157,15 +173,35 @@ function getMonthlyExpense($month, $getYear)
 
 }
 
-function getMonthlylaba($month, $getYear)
+function getMonthlyIncome($month, $getYear)
+{
+
+    global $con;
+    $totalIncome = 0;
+    $year = $getYear;
+    $shop_id = $_SESSION['shop_id'];
+
+
+
+    $sql = "SELECT * FROM income WHERE shop_id  =$shop_id AND MONTH(STR_TO_DATE(income_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(income_date,'%Y-%m-%d')) = '$year'";
+
+    $result = mysqli_query($con, $sql);
+
+    while ($row = mysqli_fetch_array($result)) {
+        $cost = floatval($row['income_amount']);
+        $totalExpense = $totalIncome + $cost;
+    }
+
+    return $totalIncome;
+
+}
+function getLababulan($month, $getYear)
 {
 
     global $con;
     $total_laba = 0;
     $year = $getYear;
     $shop_id = $_SESSION['shop_id'];
-
-
 
     $sql = "SELECT * FROM expense WHERE shop_id = $shop_id AND MONTH(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(expense_date,'%Y-%m-%d')) = '$year'";
 

@@ -96,7 +96,7 @@ else {
                         <a href="customers.php" class="nav-link">
                             <i class="nav-icon fas fa-user-tie"></i>
                             <p>
-                                Customers
+                                Pelanggan
 
                             </p>
                         </a>
@@ -106,7 +106,7 @@ else {
                         <a href="suppliers.php" class="nav-link">
                             <i class="nav-icon fas fa-people-carry"></i>
                             <p>
-                                Suppliers
+                                Supplier
 
                             </p>
                         </a>
@@ -116,7 +116,7 @@ else {
                         <a href="category.php" class="nav-link">
                             <i class="nav-icon fas fa-book"></i>
                             <p>
-                                Products Category
+                                Kategori Produk
 
                             </p>
                         </a>
@@ -127,7 +127,7 @@ else {
                         <a href="products.php" class="nav-link">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p>
-                                Products
+                                Produk
 
                             </p>
                         </a>
@@ -138,7 +138,7 @@ else {
                         <a href="orders.php" class="nav-link">
                             <i class="nav-icon fas fa-sort-amount-up"></i>
                             <p>
-                                Orders
+                                Pesanan
 
                             </p>
                         </a>
@@ -148,7 +148,16 @@ else {
                         <a href="expense.php" class="nav-link active">
                             <i class="nav-icon fas fa-chart-line"></i>
                             <p>
-                                Expense
+                                Pengeluaran
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="income.php" class="nav-link">
+                            <i class="nav-icon fas fa-chart-line"></i>
+                            <p>
+                                Pemasukan
                             </p>
                         </a>
                     </li>
@@ -158,7 +167,7 @@ else {
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
-                                Reports
+                                Laporan
                                 <i class="right fas fa-angle-left"></i>
 
                             </p>
@@ -168,27 +177,27 @@ else {
                             <li class="nav-item">
                                 <a href="sales_report.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Sales Report</p>
+                                    <p>Laporan Penjualan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="expense_report.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Expense Report</p>
+                                    <p>Laporan Pengeluaran</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="sales_chart.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Sales Chart </p>
+                                    <p>Grafik Penjualan</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a href="expense_chart.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Expense Chart</p>
+                                    <p>Grafik Pengeluaran</p>
                                 </a>
                             </li>
 
@@ -201,7 +210,7 @@ else {
                         <a href="products.php" class="nav-link">
                             <i class="nav-icon fas fa-cog"></i>
                             <p>
-                                Settings
+                                Pengaturan
                                 <i class="right fas fa-angle-left"></i>
 
                             </p>
@@ -211,13 +220,13 @@ else {
                             <li class="nav-item">
                                 <a href="shop_information.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Shop Information</p>
+                                    <p>Informasi Toko</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="all_users.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>All Users</p>
+                                    <p>Pengguna</p>
                                 </a>
                             </li>
                         </ul>
@@ -228,7 +237,7 @@ else {
                         <a href="logout.php" class="nav-link">
                             <i class="nav-icon fas fa-power-off"></i>
                             <p>
-                                Logout
+                                Keluar
                             </p>
                         </a>
                     </li>
@@ -266,9 +275,9 @@ else {
                     <div class="card">
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_expense.php';"
-                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Add expense
+                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Tambah Pengeluaran
                             </button>
-                            <h3 class="card-title">All expense information</h3>
+                            <h3 class="card-title">Semua Informasi Pengeluaran</h3>
 
                         </div>
 
@@ -279,11 +288,11 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Expense Name</th>
-                                    <th>Expense Note</th>
-                                    <th>Expense Amount</th>
-                                    <th>Expense Time</th>
-                                    <th>Expense Date</th>
+                                    <th>Nama Pengeluaran</th>
+                                    <th>Catatan Pengeluaran</th>
+                                    <th>Jumlah Pengeluaran</th>
+                                    <th>Waktu Pengeluaran</th>
+                                    <th>Tanggal Pengeluaran</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
                                     $shop_id = $_SESSION['shop_id'];

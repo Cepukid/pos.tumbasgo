@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   $shop_name = $_POST['shop_name'];
   $shop_contact = $_POST['no_hp'];
   $shop_address = $_POST['alamat'];
-  
   $token = md5(rand('10000','99999'));
 
   
@@ -73,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
           echo '<script>alert("Konfirmasi Password salah")</script>';
         }
         else { 
-              $tambah =  "INSERT INTO shop (`shop_name`,`shop_contact`,`shop_email`,`shop_address`,`tax`,currency_symbol,`shop_status`) 
-              VALUE ('$shop_name','$shop_contact','$email','$shop_address','0','Rp','OPEN')";
+              $tambah =  "INSERT INTO shop (`shop_name`,`shop_contact`,`shop_email`,`shop_address`,`tax`,currency_symbol,`shop_status`,`shop_type`) 
+              VALUE ('$shop_name','$shop_contact','$email','$shop_address','0','Rp','OPEN','free')";
 
               if(mysqli_query($con, $tambah)){ 
                 
@@ -99,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                   $result = mysqli_query($con, $tambah1);
                   
                   $last_id = mysqli_insert_id($con);
-                  $url = 'http://localhost:8080/tumbasgo/verify.php?id='.$last_id.'&token='.$token; 
+                  $url = 'http://'.$_SERVER['SERVER_NAME'].':8080/tumbasgo/verify.php?id='.$last_id.'&token='.$token; 
 
                   $output = '<div> Terimakasih telah registrasi di Pos Kakatoo, silahkan klik link berikut untuk melanjutkan verifikasi <br>' .$url. '</div>';
 
@@ -130,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                           ));
 
                         //Recipients
-                        $mail->setFrom('info.kakatoo@gmail.com', 'Layanan Pelanggan');
+                        $mail->setFrom('info.kakatoo@gmail.com', 'Kakatoo ID');
                         $mail->addAddress($email , $name);     //Add a recipient
 
                         //Content

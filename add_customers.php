@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Add Customers</title>
+  <title>Tambah Pelanggan</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="customers.php" class="nav-link active">
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
-                Customers
+                Pelanggan
 
               </p>
             </a>
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="suppliers.php" class="nav-link">
               <i class="nav-icon fas fa-people-carry"></i>
               <p>
-                Suppliers
+                Suplier
 
               </p>
             </a>
@@ -155,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="category.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Products Category
+                Kategori Produk
 
               </p>
             </a>
@@ -165,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="products.php" class="nav-link">
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
-                Products
+                Produk
 
               </p>
             </a>
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="orders.php" class="nav-link">
               <i class="nav-icon fas fa-sort-amount-up"></i>
               <p>
-                Orders
+                Pesanan
 
               </p>
             </a>
@@ -186,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="expense.php" class="nav-link">
               <i class="nav-icon fas fa-chart-line"></i>
               <p>
-                Expense
+                Pengeluaran
               </p>
             </a>
           </li>
@@ -196,7 +196,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Reports
+                Laporan
                 <i class="right fas fa-angle-left"></i>
 
               </p>
@@ -206,27 +206,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <li class="nav-item">
                 <a href="sales_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Report</p>
+                  <p>Laporan Penjualan</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="expense_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Report</p>
+                  <p>Laporan Pengeluaran</p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="sales_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Chart </p>
+                  <p>Grafik Penjualan </p>
                 </a>
               </li>
 
               <li class="nav-item">
                 <a href="expense_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Chart</p>
+                  <p>Grafik Pengeluaran</p>
                 </a>
               </li>
 
@@ -239,7 +239,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="products.php" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                Pengaturan
                 <i class="right fas fa-angle-left"></i>
 
               </p>
@@ -249,13 +249,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <li class="nav-item">
                 <a href="shop_information.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Shop Information</p>
+                  <p>Informasi Toko</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="all_users.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
+                  <p>Pengguna</p>
                 </a>
               </li>
             </ul>
@@ -266,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="logout.php" class="nav-link">
               <i class="nav-icon fas fa-power-off"></i>
               <p>
-                Logout
+                Kelaur
               </p>
             </a>
           </li>
@@ -302,7 +302,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="card">
             <div class="card-header">
 
-              <h3 class="card-title">Add customers information</h3>
+              <h3 class="card-title">Tambah Informasi Pelanggan</h3>
 
             </div>
 
@@ -311,28 +311,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <div class="card-body">
 
                 <div class="form-group">
-                  <label for="exampleInputCustomerName">Customer Name</label>
+                  <label for="exampleInputCustomerName">Nama Pelanggan</label>
                   <input type="text" name="customer_name" class="form-control" id="exampleInputCustomerName"
-                         placeholder="Enter Customer Name">
+                         placeholder="Masukkan Nama Pelanggan">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1">Alamat Email</label>
                   <input type="email" name="customer_email" class="form-control" id="exampleInputEmail1"
-                         placeholder="Enter email">
+                         placeholder="Masukkan Email">
                 </div>
 
 
                 <div class="form-group">
-                  <label for="exampleInputPhone">Phone Number</label>
+                  <label for="exampleInputPhone">Nomor Telepon</label>
                   <input type="tel" name="customer_phone" class="form-control" id="exampleInputPhone"
-                         placeholder="Enter phone number">
+                         placeholder="Masukkan Nomor telepon">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputAddress">Customer Address</label>
+                  <label for="exampleInputAddress">Alamat</label>
                   <input type="text" name="customer_address" class="form-control" id="exampleInputAddress"
-                         placeholder="Enter customer address">
+                         placeholder="Masukkan Alamat Pelanggan">
                 </div>
 
 
@@ -340,7 +340,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <!-- /.card-body -->
               <div class="card-footer">
                 <button type="reset" class="btn btn-dark"><i class="fa fa-times-circle"></i> Reset</button>
-                <button type="submit" id="add_customer" class="btn btn-primary"><i class="fa fa-check-circle"></i> Add Customer</button>
+                <button type="submit" id="add_customer" class="btn btn-primary"><i class="fa fa-check-circle"></i> Tambah Pelanggan</button>
               </div>
             </form>
 

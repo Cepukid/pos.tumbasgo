@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
   
-  $result = mysqli_query($con, "SELECT * FROM products WHERE shop_id=$shop_id AND product_code='$product_code'");
+  $result = mysqli_query($con, "SELECT * FROM products WHERE shop_id= '$shop_id' AND product_code='$product_code'");
   $num_rows = mysqli_num_rows($result);
   $type = mysqli_query($con, "SELECT shop_type From shop WHERE shop_id='$shop_id'");
   $shop_type = mysqli_num_rows($type);
@@ -62,7 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_buy`,`product_sell_price`,`product_location`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`,`shop_type`) VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_buy','$product_sell_price','$product_location','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id','$shop_type')")) {
+    if (mysqli_query($con, "INSERT INTO products (`product_name`,`product_code`,`product_category_id`,`product_description`,`product_buy`,`product_sell_price`,`product_location`,`product_weight`,`product_weight_unit_id`,`product_supplier_id`,`product_image`,`product_stock`,`shop_id`,`shop_type`) 
+    VALUE ('$product_name','$product_code','$product_category_id','$product_description','$product_buy','$product_sell_price','$product_location','$product_weight','$product_weight_unit_id','$product_supplier_id','$newfilename','$product_stock','$shop_id','$shop_type')")) {
     echo '<script type="text/javascript">';
     echo 'setTimeout(function () { swal.fire("Product Successfully Added!","Done!","success");';
     echo '}, 500);</script>';
@@ -534,7 +535,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       rules: {
 
         product_name: {
-          required: true
+          required: true,
         },
         product_code: {
           required: true,
@@ -546,7 +547,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           required: true,
         },
 
-        product_buy{
+        product_buy: {
           required: true,
         },
 
@@ -635,7 +636,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $(document).on('click', '#add_product', function (e) {
     e.preventDefault();
-    if(php_var>11 && shop_type=="free"){
+    if(php_var>25 && shop_type=="free"){
       swal.fire("OOPS!","Maaf Jumlah Produk Anda Sudah melebihi batas!","error");
     }else{
     Swal.fire({

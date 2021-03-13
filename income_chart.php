@@ -19,7 +19,7 @@ else {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Grafik Pengeluaran </title>
+  <title>Grafik Pemasukan </title>
 
   <!--chart-->
   <link rel="stylesheet" href="plugins/morris/morris.css">
@@ -195,6 +195,13 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
+                <a href="income_report.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Laporan Pemasukan</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="sales_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Penjualan </p>
@@ -202,9 +209,16 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="expense_chart.php" class="nav-link active">
+                <a href="expense_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Pengeluaran</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="income_chart.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Grafik Pemasukan</p>
                 </a>
               </li>
 
@@ -265,7 +279,7 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Grafik Pengeluaran</h1>
+            <h1 class="m-0 text-dark">Grafik Pemasukan</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -284,7 +298,7 @@ to get the desired effect
 
         include ('db_connect.php');
         include ('my_function.php');
-        $currency=getCurrency();
+        $currency = getCurrency();
 
         ?>
 
@@ -295,22 +309,22 @@ to get the desired effect
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Jumlah Total Pengeluaran</h3>
+                    <h3 class="card-title">Jumlah Total Pemasukan</h3>
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="d-flex">
 
                     <p class="d-flex flex-column">
-                      <span class="text-bold text-lg"><?php echo $currency.' '.getTotalExpense()?></span>
-                      <span>Total Pengeluaran</span>
+                      <span class="text-bold text-lg"><?php echo $currency.' '.getTotalIncome()?></span>
+                      <span>Total Pemasukan</span>
                     </p>
 
                   </div>
                   <!-- /.d-flex -->
 
                   <div class="position-relative mb-4">
-                    <div id="monthly_expense_graph" style="height: 250px;"></div>
+                    <div id="monthly_income_graph" style="height: 250px;"></div>
                   </div>
 
                   <div class="d-flex flex-row justify-content-end">
@@ -331,22 +345,22 @@ to get the desired effect
                 <div class="card">
                   <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
-                      <h3 class="card-title">Jumlah Total Pengeluaran</h3>
+                      <h3 class="card-title">Jumlah Total Pemasukan</h3>
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="d-flex">
 
                       <p class="d-flex flex-column">
-                        <span class="text-bold text-lg"><?php echo $currency.' '.getTotalExpense()?></span>
-                        <span>Total Pengeluaran</span>
+                        <span class="text-bold text-lg"><?php echo $currency.' '.getTotalIncome()?></span>
+                        <span>Total Pemasukan</span>
                       </p>
 
                     </div>
                     <!-- /.d-flex -->
 
                     <div class="position-relative mb-4">
-                      <div id="monthly_expense_graph_barchart" style="height: 250px;"></div>
+                      <div id="monthly_income_graph_barchart" style="height: 250px;"></div>
                     </div>
 
                     <div class="d-flex flex-row justify-content-end">
@@ -411,22 +425,22 @@ to get the desired effect
   ?>
   new Morris.Line({
     // ID of the element in which to draw the chart.
-    element: 'monthly_expense_graph',
+    element: 'monthly_income_graph',
     // Chart data records -- each entry in this array corresponds to a point on
     // the chart.
     data: [
-      { month: 'Jan', value: <?php echo getMonthlyExpense('01',$current_year)?>},
-      { month: 'Feb', value:  <?php echo getMonthlyExpense('02',$current_year)?>},
-      { month: 'Mar', value:  <?php echo getMonthlyExpense('03',$current_year)?>},
-      { month: 'Apr', value:  <?php echo getMonthlyExpense('04',$current_year)?>},
-      { month: 'May', value: <?php echo getMonthlyExpense('05',$current_year)?>},
-      { month: 'Jun', value:  <?php echo getMonthlyExpense('06',$current_year)?>},
-      { month: 'Jul', value:  <?php echo getMonthlyExpense('07',$current_year)?>},
-      { month: 'Aug', value:  <?php echo getMonthlyExpense('08',$current_year)?>},
-      { month: 'Sep', value:  <?php echo getMonthlyExpense('09',$current_year)?>},
-      { month: 'Oct', value:  <?php echo getMonthlyExpense('10',$current_year)?>},
-      { month: 'Nov', value:  <?php echo getMonthlyExpense('11',$current_year)?>},
-      { month: 'Dec', value:  <?php echo getMonthlyExpense('12',$current_year)?>}
+      { month: 'Jan', value: <?php echo getMonthlyIncome('01',$current_year)?>},
+      { month: 'Feb', value:  <?php echo getMonthlyIncome('02',$current_year)?>},
+      { month: 'Mar', value:  <?php echo getMonthlyIncome('03',$current_year)?>},
+      { month: 'Apr', value:  <?php echo getMonthlyIncome('04',$current_year)?>},
+      { month: 'May', value: <?php echo getMonthlyIncome('05',$current_year)?>},
+      { month: 'Jun', value:  <?php echo getMonthlyIncome('06',$current_year)?>},
+      { month: 'Jul', value:  <?php echo getMonthlyIncome('07',$current_year)?>},
+      { month: 'Aug', value:  <?php echo getMonthlyIncome('08',$current_year)?>},
+      { month: 'Sep', value:  <?php echo getMonthlyIncome('09',$current_year)?>},
+      { month: 'Oct', value:  <?php echo getMonthlyIncome('10',$current_year)?>},
+      { month: 'Nov', value:  <?php echo getMonthlyIncome('11',$current_year)?>},
+      { month: 'Dec', value:  <?php echo getMonthlyIncome('12',$current_year)?>}
     ],
     // The name of the data record attribute that contains x-values.
     xkey: 'month',
@@ -457,22 +471,22 @@ to get the desired effect
   ?>
   new Morris.Bar({
     // ID of the element in which to draw the chart.
-    element: 'monthly_expense_graph_barchart',
+    element: 'monthly_income_graph_barchart',
     // Chart data records -- each entry in this array corresponds to a point on
     // the chart.
     data: [
-      { month: 'Jan', value: <?php echo getMonthlyExpense('01',$current_year)?>},
-      { month: 'Feb', value:  <?php echo getMonthlyExpense('02',$current_year)?>},
-      { month: 'Mar', value:  <?php echo getMonthlyExpense('03',$current_year)?>},
-      { month: 'Apr', value:  <?php echo getMonthlyExpense('04',$current_year)?>},
-      { month: 'May', value: <?php echo getMonthlyExpense('05',$current_year)?>},
-      { month: 'Jun', value:  <?php echo getMonthlyExpense('06',$current_year)?>},
-      { month: 'Jul', value:  <?php echo getMonthlyExpense('07',$current_year)?>},
-      { month: 'Aug', value:  <?php echo getMonthlyExpense('08',$current_year)?>},
-      { month: 'Sep', value:  <?php echo getMonthlyExpense('09',$current_year)?>},
-      { month: 'Oct', value:  <?php echo getMonthlyExpense('10',$current_year)?>},
-      { month: 'Nov', value:  <?php echo getMonthlyExpense('11',$current_year)?>},
-      { month: 'Dec', value:  <?php echo getMonthlyExpense('12',$current_year)?>}
+      { month: 'Jan', value: <?php echo getMonthlyIncome('01',$current_year)?>},
+      { month: 'Feb', value:  <?php echo getMonthlyIncome('02',$current_year)?>},
+      { month: 'Mar', value:  <?php echo getMonthlyIncome('03',$current_year)?>},
+      { month: 'Apr', value:  <?php echo getMonthlyIncome('04',$current_year)?>},
+      { month: 'May', value: <?php echo getMonthlyIncome('05',$current_year)?>},
+      { month: 'Jun', value:  <?php echo getMonthlyIncome('06',$current_year)?>},
+      { month: 'Jul', value:  <?php echo getMonthlyIncome('07',$current_year)?>},
+      { month: 'Aug', value:  <?php echo getMonthlyIncome('08',$current_year)?>},
+      { month: 'Sep', value:  <?php echo getMonthlyIncome('09',$current_year)?>},
+      { month: 'Oct', value:  <?php echo getMonthlyIncome('10',$current_year)?>},
+      { month: 'Nov', value:  <?php echo getMonthlyIncome('11',$current_year)?>},
+      { month: 'Dec', value:  <?php echo getMonthlyIncome('12',$current_year)?>}
     ],
     // The name of the data record attribute that contains x-values.
     xkey: 'month',

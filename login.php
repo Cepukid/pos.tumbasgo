@@ -46,10 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['key']=mt_rand(1000,9999);
       $_SESSION['user_type'] = $row['user_type'];
       $_SESSION['shop_id'] = $row['shop_id'];
+
+      //$shop_type = $_SESSION['shop_type'];
       $shop_id= $_SESSION['shop_id'];
-      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id");
+      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id = '$shop_id' AND shop_type = '$shop_type'");
       $rows = $result->fetch_assoc();
-      $_SESSION['shop_type']=$rows['shop_type'];
+      $_SESSION['shop_type']=$row['shop_type'];
 
       header("location:dashboard.php");
     } else {

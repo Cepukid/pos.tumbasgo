@@ -4,8 +4,9 @@ if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESS
     echo " ";
 else {
     header("location:index.php");
-
 }
+
+
 ?>
 
 
@@ -160,6 +161,15 @@ to get the desired effect
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="income.php" class="nav-link">
+              <i class="nav-icon fas fa-chart-line"></i>
+                <p>
+                  Pemasukan
+                </p>
+              </a>
+          </li>
+
 
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -181,7 +191,14 @@ to get the desired effect
               <li class="nav-item">
                 <a href="expense_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Pemasukan</p>
+                  <p>Laporan Pengeluaran</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="income_report.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                    <p>Laporan Pemasukan</p>
                 </a>
               </li>
 
@@ -198,17 +215,21 @@ to get the desired effect
                   <p>Grafik Pengeluaran</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="income_chart.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Grafik Pemasukan</p>
+                </a>
+              </li>
 
               <li class="nav-item">
-                <a href="sales_laba.php" class="nav-link">
+                <a href="grafik_laba.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Laba</p>
                 </a>
               </li>
 
             </ul>
-
-
           </li>
 
           <li class="nav-item">
@@ -267,18 +288,20 @@ to get the desired effect
 
         <?php
          include ('db_connect.php');
-        $count_customer = mysqli_query($con,"SELECT * FROM customers");
-        $total_customer=mysqli_num_rows($count_customer);
 
-        $count_suppliers = mysqli_query($con,"SELECT * FROM suppliers");
-        $total_suppliers=mysqli_num_rows($count_suppliers);
+         $shop_id = $_SESSION['shop_id'];
+        $count_customer = mysqli_query($con,"SELECT * FROM customers WHERE shop_id = $shop_id");
+        $total_customer = mysqli_num_rows($count_customer);
+
+        $count_suppliers = mysqli_query($con,"SELECT * FROM suppliers WHERE shop_id = $shop_id");
+        $total_suppliers = mysqli_num_rows($count_suppliers);
 
 
-        $count_products = mysqli_query($con,"SELECT * FROM products");
-        $total_products=mysqli_num_rows($count_products);
+        $count_products = mysqli_query($con,"SELECT * FROM products WHERE shop_id = $shop_id");
+        $total_products = mysqli_num_rows($count_products);
 
-        $count_order = mysqli_query($con,"SELECT * FROM order_list");
-        $total_orders=mysqli_num_rows($count_order);
+        $count_order = mysqli_query($con,"SELECT * FROM order_list WHERE shop_id = $shop_id");
+        $total_orders = mysqli_num_rows($count_order);
 
 
 
@@ -392,9 +415,11 @@ to get the desired effect
 
                       include ('my_function.php');
                       $currency=getCurrency();
-
-                      $sql="SELECT * FROM products ORDER BY product_id DESC";
+                      $shop_id = $_SESSION['shop_id'];
+                      
+                      $sql="SELECT * FROM products WHERE shop_id = '$shop_id' ORDER BY product_id DESC";
                       $result = mysqli_query ($con,$sql);
+                      
                       $i=1;
                       while($row = mysqli_fetch_array($result))
                       {
@@ -469,7 +494,7 @@ to get the desired effect
                     <?php
 
 
-                    $sql="SELECT * FROM order_list ORDER BY order_id DESC";
+                    $sql="SELECT * FROM order_list WHERE shop_id = $shop_id ORDER BY order_id DESC";
                     $result = mysqli_query ($con,$sql);
                     $i=1;
                     while($row = mysqli_fetch_array($result))

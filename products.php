@@ -177,7 +177,7 @@ else {
               <li class="nav-item">
                 <a href="expense_report.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Pemasukan</p>
+                  <p>Laporan Pengeluaran</p>
                 </a>
               </li>
 

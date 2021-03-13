@@ -7,6 +7,7 @@ else {
 
 }
 
+
 ?>
 
 
@@ -17,9 +18,10 @@ else {
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Laporan Pengeluaran</title>
+    <title>Pemasukan</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
     <script src="plugins/jquery.min/jquery.min.js"></script>
 
@@ -35,7 +37,6 @@ else {
     <!-- DataTables -->
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-
     <!--For data export and print button css-->
     <link rel="stylesheet" href="dist/css/buttons.dataTables.min.css">
 
@@ -153,7 +154,7 @@ else {
                     </li>
 
                     <li class="nav-item">
-                        <a href="income.php" class="nav-link">
+                        <a href="income.php" class="nav-link active">
                             <i class="nav-icon fas fa-chart-line"></i>
                             <p>
                                 Pemasukan
@@ -162,8 +163,8 @@ else {
                     </li>
 
 
-                    <li class="nav-item has-treeview menu-open">
-                        <a href="#" class="nav-link active">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 Laporan
@@ -176,7 +177,7 @@ else {
                             <li class="nav-item">
                                 <a href="sales_report.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>laporan Penjualan</p>
+                                    <p>Laporan Penjualan</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -185,9 +186,8 @@ else {
                                     <p>Laporan Pengeluaran</p>
                                 </a>
                             </li>
-
                             <li class="nav-item">
-                                <a href="income_report.php" class="nav-link active">
+                                <a href="income_report.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Laporan Pemasukan</p>
                                 </a>
@@ -196,7 +196,7 @@ else {
                             <li class="nav-item">
                                 <a href="sales_chart.php" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>Grafik Penjualan</p>
+                                    <p>Grafik Penjualan </p>
                                 </a>
                             </li>
 
@@ -262,7 +262,10 @@ else {
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
+                    <div class="col-sm-6">
 
+
+                    </div>
 
                 </div>
             </div><!-- /.container-fluid -->
@@ -277,8 +280,10 @@ else {
 
                     <div class="card">
                         <div class="card-header">
-
-                            <h3 class="card-title">Semua Informasi Pengeluaran</h3>
+                            <button type="button" onclick="location.href = 'add_income.php';"
+                                    class="btn btn-primary float-right"><i class='fas fa-plus-circle'></i> Tambah Pemasukan
+                            </button>
+                            <h3 class="card-title">Semua informasi Pemasukan</h3>
 
                         </div>
 
@@ -289,12 +294,23 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nama Pengeluaran</th>
-                                    <th>Catatan Pengeluaran</th>
-                                    <th>Jumlah Pengeluaran</th>
-                                    <th>Waktu Pengeluaran</th>
-                                    <th>Tanggal Pengeluaran</th>
-                                    <th>Aksi</th>
+                                    <th>Nama Pemasukan</th>
+                                    <th>Catatan Pemasukan</th>
+                                    <th>Nilai Pemasukan</th>
+                                    <th>Jam Pemasukan</th>
+                                    <th>Tanggal Pemasukan</th>
+                                    <?php
+                                    $user_type = $_SESSION['user_type'];
+                                    $shop_id = $_SESSION['shop_id'];
+                                    if ($user_type == 'admin') {
+
+
+                                        ?>
+                                        <th>Aksi</th>
+
+                                        <?php
+                                    }
+                                    ?>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -303,53 +319,35 @@ else {
 
                                 include('db_connect.php');
                                 include('my_function.php');
-
-                                $total_expense = getTotalExpense();
                                 $currency = getCurrency();
 
-
-                                $sql = "SELECT * FROM expense ORDER BY expense_id DESC";
+                                $sql = "SELECT * FROM income WHERE shop_id=$shop_id ORDER BY income_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
                                     echo "<tr>";
 
                                     echo "<td>" . $i . "</td>";
-                                    echo "<td>" . $row['expense_name'] . "</td>";
-                                    echo "<td>" . $row['expense_note'] . "</td>";
-                                    echo "<td>" . $currency . $row['expense_amount'] . "</td>";
-                                    echo "<td>" . $row['expense_time'] . "</td>";
-                                    echo "<td>" . date('d F, Y', strtotime($row['expense_date'])) . "</td>";
+                                    echo "<td>" . $row['income_name'] . "</td>";
+                                    echo "<td>" . $row['income_note'] . "</td>";
+                                    echo "<td>" . $currency . $row['income_amount'] . "</td>";
+                                    echo "<td>" . date('h:i A ', strtotime($row['income_time'])) . "</td>";
+                                    echo "<td>" . date('d F, Y', strtotime($row['income_date'])) . "</td>";
 
-                                    echo "<td><a class='btn btn-primary'  href=\"edit_expense.php?id=" . $row['expense_id'] . "\" ><i class='fas fa-edit'></i></a> ";
-                                    echo "<a class='confirmation btn btn-danger'  href=\"delete_expense.php?id=" . $row['expense_id'] . "\" ><i class='fas fa-trash'></i></a></td>";
-
+                                    if ($user_type=='admin') {
+                                        echo "<td><a class='btn btn-primary'  href=\"edit_income.php?id=" . $row['income_id'] . "\" ><i class='fas fa-edit'></i></a> ";
+                                        echo "<a class='confirmation btn btn-danger'  href=\"delete_income.php?id=" . $row['income_id'] . "\" ><i class='fas fa-trash'></i></a></td>";
+                                    }
 
                                     $i++;
 
                                     echo "</tr> ";
                                 }
 
-
-                                echo "<tr>";
-                                echo "<th>Summary</th>";
-                                echo "<th></th>";
-                                echo "<th>Total Amount=</th>";
-                                echo "<th>".getCurrency() . $total_expense . "</th>";
-                                echo "<th></th>";
-                                echo "<th></th>";
-                                echo "<th></th>";
-
-
-                                echo "</tr>";
-
-
                                 echo " </tbody>";
                                 echo " </table>";
 
                                 ?>
-
-
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -382,7 +380,6 @@ else {
 <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
 <!-- page script for export data from data tables -->
 <script>
     $(function () {
@@ -426,7 +423,6 @@ else {
 
     });
 </script>
-
 
 <script>
     $('.confirmation').on('click', function () {
