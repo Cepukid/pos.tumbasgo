@@ -546,7 +546,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         product_description: {
           required: true,
         },
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         product_buy: {
           required: true,
         },
@@ -586,9 +589,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         product_description: {
           required: "Please enter product description"
         },
-
         product_buy: {
-          required: "Please enter buy product price"
+          required: "Please enter product price"
         },
 
         product_price: {
@@ -628,6 +630,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </script>
+
 
 
 <script type="text/javascript">

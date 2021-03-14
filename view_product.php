@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -93,6 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Edit Product</title>
+  <link href="assets/img/gallery/logo.png" rel="icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -142,7 +143,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="dist/img/AdminLTELogo.png"

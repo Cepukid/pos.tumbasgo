@@ -1,9 +1,15 @@
 <?php
 session_start();
+$shop_id = $_SESSION['shop_id'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
+<<<<<<< Updated upstream
     header("location:index.php");
+=======
+    header("location:login.php");
+
+>>>>>>> Stashed changes
 }
 
 
@@ -72,7 +78,7 @@ to get the desired effect
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -223,11 +229,21 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
+<<<<<<< Updated upstream
                 <a href="grafik_laba.php" class="nav-link">
+=======
+                <a href="labachart.php" class="nav-link">
+>>>>>>> Stashed changes
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Laba</p>
                 </a>
               </li>
+<<<<<<< Updated upstream
+=======
+
+            </ul>
+
+>>>>>>> Stashed changes
 
             </ul>
           </li>
@@ -268,6 +284,16 @@ to get the desired effect
             </a>
           </li>
 
+          &ensp;
+          &ensp;
+<!-- 
+          <li class="nav-item" style="background-color: red; border-radius: 10px;">
+              <a href="upgrade.php" class="nav-link">
+                <i class="fa fa-space-shuttle nav-icon" style="color:white"></i>
+                <span class="nav-link-text" style="color: white;">Upgrade to Premium</span>
+              </a>
+            </li> -->
+
 
         </ul>
       </nav>
@@ -288,6 +314,7 @@ to get the desired effect
 
         <?php
          include ('db_connect.php');
+<<<<<<< Updated upstream
 
          $shop_id = $_SESSION['shop_id'];
         $count_customer = mysqli_query($con,"SELECT * FROM customers WHERE shop_id = $shop_id");
@@ -302,6 +329,21 @@ to get the desired effect
 
         $count_order = mysqli_query($con,"SELECT * FROM order_list WHERE shop_id = $shop_id");
         $total_orders = mysqli_num_rows($count_order);
+=======
+
+        $count_customer = mysqli_query($con,"SELECT * FROM customers WHERE shop_id=$shop_id");
+        $total_customer=mysqli_num_rows($count_customer);
+
+        $count_suppliers = mysqli_query($con,"SELECT * FROM suppliers WHERE shop_id=$shop_id");
+        $total_suppliers=mysqli_num_rows($count_suppliers);
+
+
+        $count_products = mysqli_query($con,"SELECT * FROM products WHERE shop_id=$shop_id");
+        $total_products=mysqli_num_rows($count_products);
+
+        $count_order = mysqli_query($con,"SELECT * FROM order_list WHERE shop_id=$shop_id");
+        $total_orders=mysqli_num_rows($count_order);
+>>>>>>> Stashed changes
 
 
 
@@ -387,7 +429,7 @@ to get the desired effect
 
               <div class="card">
                 <div class="card-header border-transparent">
-                  <h3 class="card-title">Produk Terupdate</h3>
+                  <h3 class="card-title font-weight-bold text-primary" style="color: #414FB7;">Produk Terupdate</h3>
 
                   <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -415,9 +457,14 @@ to get the desired effect
 
                       include ('my_function.php');
                       $currency=getCurrency();
+<<<<<<< Updated upstream
                       $shop_id = $_SESSION['shop_id'];
                       
                       $sql="SELECT * FROM products WHERE shop_id = '$shop_id' ORDER BY product_id DESC";
+=======
+
+                      $sql="SELECT * FROM products  WHERE shop_id=$shop_id ORDER BY product_id DESC";
+>>>>>>> Stashed changes
                       $result = mysqli_query ($con,$sql);
                       
                       $i=1;
@@ -466,7 +513,7 @@ to get the desired effect
             <!-- TABLE: LATEST ORDERS -->
             <div class="card">
               <div class="card-header border-transparent">
-                <h3 class="card-title">Pesanan Terupdate</h3>
+                <h3 class="card-title font-weight-bold text-primary"  style="color: #414FB7;">Pesanan Terupdate</h3>
 
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -494,7 +541,11 @@ to get the desired effect
                     <?php
 
 
+<<<<<<< Updated upstream
                     $sql="SELECT * FROM order_list WHERE shop_id = $shop_id ORDER BY order_id DESC";
+=======
+                    $sql="SELECT * FROM order_list  WHERE shop_id=$shop_id ORDER BY order_id DESC";
+>>>>>>> Stashed changes
                     $result = mysqli_query ($con,$sql);
                     $i=1;
                     while($row = mysqli_fetch_array($result))
@@ -543,7 +594,7 @@ to get the desired effect
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Total Penjualan</h3>
+                    <h3 class="card-title font-weight-bold text-primary"  style="color: #414FB7;">Total Penjualan</h3>
                   </div>
                 </div>
                 <div class="card-body">
@@ -578,7 +629,7 @@ to get the desired effect
               <div class="card">
                 <div class="card-header border-0">
                   <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Total Pengeluaran</h3>
+                    <h3 class="card-title font-weight-bold text-primary"  style="color: #414FB7;">Total Pengeluaran</h3>
                   </div>
                 </div>
                 <div class="card-body">

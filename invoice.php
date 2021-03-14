@@ -6,6 +6,7 @@
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 
     <title>Order Invoice</title>
+    <link href="assets/img/gallery/logo.png" rel="icon">
 
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
     <link rel='stylesheet' type='text/css' href='css/print.css' media="print"/>

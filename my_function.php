@@ -148,6 +148,39 @@ function getMonthlySalesAmount($month, $getYear)
 
 }
 
+// calculate laba
+function getMonthlyLabaAmount($month, $getYear)
+{
+
+    global $con;
+    $totalCost = 0;
+    $shop_id = $_SESSION['shop_id'];
+    $year = $getYear;
+    $harga_beli = $_GET['product_buy'];
+
+
+    $sql = "SELECT * FROM order_list WHERE shop_id=$shop_id AND MONTH(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$month' AND YEAR(STR_TO_DATE(order_date,'%Y-%m-%d')) = '$year'";
+
+    //$sql="SELECT * FROM order_list";
+
+    //$sql = "SELECT * FROM order_list WHERE  DATE_FORMAT('%m',order_date) = '". $month . "' AND  DATE_FORMAT('%Y', order_date) = '".  $year;
+
+    $result = mysqli_query($con, $sql);
+    // $row = mysqli_fetch_assoc($result);
+
+
+    while ($row = mysqli_fetch_array($result)) {
+        $cost = floatval($row['order_price']);
+        $harga_beli = floatval($row['product_buy']);
+        $totalCost = $totalCost + $cost - $harga_beli;
+
+    }
+
+
+    return $totalCost;
+
+}
+
 
 //calculate total price in month
 function getMonthlyExpense($month, $getYear)

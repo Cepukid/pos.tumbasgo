@@ -70,7 +70,7 @@
  
     </div>
   </header><!-- End Header -->
-
+  
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
@@ -390,9 +390,9 @@
                 <li>Struk dengan logo KakaPos</li>
                 <li class="na">Laporan</li>
               </ul>
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <a href="#" class="btn-buy">Beli</a>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -406,9 +406,9 @@
                 <li>Struk dengan logo pribadi</li>
                 <li>laporan</li>
               </ul>
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <a href="#" class="btn-buy">Beli</a>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -422,9 +422,9 @@
                 <li>Struk dengan logo pribadi</li>
                 <li>laporan</li>
               </ul>
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <a href="#" class="btn-buy">Beli</a>
-              </div>
+              </div> -->
             </div>
           </div>
 

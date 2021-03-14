@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['email']) and isset($_SESSION['user_type']) and isset($_SESSION['key']))
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -63,7 +63,7 @@ else {
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="dist/img/AdminLTELogo.png"

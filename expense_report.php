@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -17,7 +17,12 @@ else {
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< Updated upstream
     <title>Laporan Pengeluaran</title>
+=======
+    <title>Expense Report</title>
+    <link href="assets/img/gallery/logo.png" rel="icon">
+>>>>>>> Stashed changes
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -62,7 +67,7 @@ else {
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="dist/img/AdminLTELogo.png"
@@ -306,9 +311,10 @@ else {
 
                                 $total_expense = getTotalExpense();
                                 $currency = getCurrency();
+                                $shop_id = $_SESSION['shop_id'];
 
 
-                                $sql = "SELECT * FROM expense ORDER BY expense_id DESC";
+                                $sql = "SELECT * FROM expense WHERE shop_id = $shop_id ORDER BY expense_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {

@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -66,7 +66,7 @@ else {
 
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="dist/img/AdminLTELogo.png"
@@ -282,6 +282,7 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
+<<<<<<< Updated upstream
                                     <th>Nama</th>
                                     <th>Kode Produk</th>
                                     <th>Harga jual</th>
@@ -289,6 +290,15 @@ else {
                                     <th>Keterangan Lokasi</th>
                                     <th>Berat</th>
                                     <th>Supplier</th>
+=======
+                                    <th>Nama</th> 
+                                    <th>Kode Produk</th>
+                                    <th>Harga Beli</th>
+                                    <th>Harga Jual</th>
+                                    <th>Berat</th>
+                                    <th>Suplier</th>
+                                    <th>Kategori</th>
+>>>>>>> Stashed changes
                                     <th>Stok</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
@@ -324,11 +334,13 @@ else {
 
                                     echo "<td>" . $row['product_name'] . "</td>";
                                     echo "<td>" . $row['product_code'] . "</td>";
+                                    echo "<td>" . $currency . $row['product_buy'] . "</td>";
                                     echo "<td>" . $currency . $row['product_sell_price'] . "</td>";
                                     echo "<td>" . $currency . $row['product_buy'] . "</td>";
                                     echo "<td>" . $row['product_location'] . "</td>";
                                     echo "<td>" . $row['product_weight'] . weightUnit($row['product_weight_unit_id']) . "</td>";
                                     echo "<td>" . supplierName($row['product_supplier_id']) . "</td>";
+                                    echo "<td>" . categoryName($row['product_category_id']) . "</td>";
                                     echo "<td>" . $row['product_stock'] . "</td>";
 
                                     if ($user_type=='admin') {
@@ -394,27 +406,27 @@ else {
                 {
                     extend: 'excelHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5,6]
+                        columns: [0, 1, 2, 3, 4,5,6,7,8]
                     }
                 },
                 {
                     extend: 'csvHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5,6]
+                        columns: [0, 1, 2, 3, 4,5,6,7,8]
                     }
                 },
                 {
                     extend: 'pdfHtml5',
 
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5,6]
+                        columns: [0, 1, 2, 3, 4,5,6,7,8]
                     }
                 },
 
                 {
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5,6]
+                        columns: [0, 1, 2, 3, 4,5,6,7,8]
                     }
                 },
 
@@ -425,17 +437,17 @@ else {
     });
 </script>
 
-<script>
+<!-- <script>
     $('.confirmation').on('click', function () {
         return confirm('Are you sure?');
     });
     var php_var = "<?php echo $num_rows; ?>";
     var shop_type = "<?php echo $shop_type; ?>";
     
-    if(php_var>25 && shop_type=="free"){
+    if(php_var>10 && shop_type=="free"){
         $("#btntambah").attr("disabled","true");
     }
-</script>
+</script> -->
 
 
 <!--For data export and print-->

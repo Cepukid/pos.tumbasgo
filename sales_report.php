@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-    header("location:index.php");
+    header("location:login.php");
 
 }
 
@@ -16,6 +16,7 @@ else {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sales Report</title>
+    <link href="assets/img/gallery/logo.png" rel="icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -58,7 +59,7 @@ else {
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #414FB7;">
         <!-- Brand Logo -->
         <a href="#" class="brand-link">
             <img src="dist/img/AdminLTELogo.png"
@@ -290,8 +291,9 @@ else {
                                 $total_tax = floatval(getTotalTax());
                                 $total_discount = floatval(getTotalDiscount());
                                 $net_sales = $total_price + $total_tax - $total_discount;
+                                $shop_id = $_SESSION['shop_id'];
 
-                                $sql = "SELECT * FROM order_details ORDER BY order_details_id DESC";
+                                $sql = "SELECT * FROM order_details WHERE shop_id = $shop_id ORDER BY order_details_id DESC";
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
@@ -320,9 +322,15 @@ else {
 
 
 
+<<<<<<< Updated upstream
                                 echo "<th>Total Harga pesanan Rp" . $total_price . "</th>";
                                 echo "<th>Total Pajak =".getCurrency() . $total_tax . "</th>";
                                 echo "<th>Total Diskon=".getCurrency() . $total_discount . "</th>";
+=======
+                                echo "<th>Total Order Price Rp" . $total_price . "</th>";
+                                echo "<th>Total Tax =".getCurrency() . $total_tax . "</th>";
+                                echo "<th>Total Discount=".getCurrency() . $total_discount . "</th>";
+>>>>>>> Stashed changes
                                 echo "<th>Net Sales=".getCurrency() . $net_sales . "</th>";
                                 echo "<th></th>";
 

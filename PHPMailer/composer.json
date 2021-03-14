@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 {
     "require":  {
@@ -5,6 +6,8 @@
      }
  }
 
+=======
+>>>>>>> Stashed changes
 {
     "name": "phpmailer/phpmailer",
     "type": "library",

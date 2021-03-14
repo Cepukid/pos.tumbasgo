@@ -188,8 +188,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 </div>
+<<<<<<< Updated upstream
               </form>
 
+=======
+                <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+                
+                <hr>
+                <div class="text-center" style="font-weight: 500;">
+                    <a class="medium" href="lupapassword.php">Lupa Password?</a>
+                </div>
+                
+            </form>
+            <!-- end form login -->
+            </div>
+            <!-- gambar -->
+>>>>>>> Stashed changes
 
             </div>
 
