@@ -288,11 +288,7 @@ else {
                 $currency = getCurrency();
                 $shop_id = $_SESSION['shop_id'];
 
-<<<<<<< Updated upstream
                 $result = mysqli_query($con, "SELECT * FROM order_details WHERE shop_id = $shop_id AND invoice_id='$getid'");
-=======
-                $result = mysqli_query($con, "SELECT * FROM order_details WHERE shop_id=$shop_id AND invoice_id='$getid'");
->>>>>>> Stashed changes
 
 
                 $i = 1;

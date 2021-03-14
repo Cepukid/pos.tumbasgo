@@ -322,15 +322,9 @@ else {
 
 
 
-<<<<<<< Updated upstream
                                 echo "<th>Total Harga pesanan Rp" . $total_price . "</th>";
                                 echo "<th>Total Pajak =".getCurrency() . $total_tax . "</th>";
                                 echo "<th>Total Diskon=".getCurrency() . $total_discount . "</th>";
-=======
-                                echo "<th>Total Order Price Rp" . $total_price . "</th>";
-                                echo "<th>Total Tax =".getCurrency() . $total_tax . "</th>";
-                                echo "<th>Total Discount=".getCurrency() . $total_discount . "</th>";
->>>>>>> Stashed changes
                                 echo "<th>Net Sales=".getCurrency() . $net_sales . "</th>";
                                 echo "<th></th>";
 

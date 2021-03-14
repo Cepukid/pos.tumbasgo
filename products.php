@@ -282,7 +282,6 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-<<<<<<< Updated upstream
                                     <th>Nama</th>
                                     <th>Kode Produk</th>
                                     <th>Harga jual</th>
@@ -290,15 +289,6 @@ else {
                                     <th>Keterangan Lokasi</th>
                                     <th>Berat</th>
                                     <th>Supplier</th>
-=======
-                                    <th>Nama</th> 
-                                    <th>Kode Produk</th>
-                                    <th>Harga Beli</th>
-                                    <th>Harga Jual</th>
-                                    <th>Berat</th>
-                                    <th>Suplier</th>
-                                    <th>Kategori</th>
->>>>>>> Stashed changes
                                     <th>Stok</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
@@ -334,7 +324,6 @@ else {
 
                                     echo "<td>" . $row['product_name'] . "</td>";
                                     echo "<td>" . $row['product_code'] . "</td>";
-                                    echo "<td>" . $currency . $row['product_buy'] . "</td>";
                                     echo "<td>" . $currency . $row['product_sell_price'] . "</td>";
                                     echo "<td>" . $currency . $row['product_buy'] . "</td>";
                                     echo "<td>" . $row['product_location'] . "</td>";

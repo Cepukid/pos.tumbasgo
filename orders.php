@@ -307,11 +307,7 @@ else {
                                 include('my_function.php');
                                 $currency = getCurrency();
 
-<<<<<<< Updated upstream
                                 $sql = "SELECT * FROM order_list WHERE shop_id = $shop_id ORDER BY order_id DESC";
-=======
-                                $sql = "SELECT * FROM order_list WHERE shop_id=$shop_id ORDER BY order_id DESC";
->>>>>>> Stashed changes
                                 $result = mysqli_query($con, $sql);
                                 $i = 1;
                                 while ($row = mysqli_fetch_array($result)) {
