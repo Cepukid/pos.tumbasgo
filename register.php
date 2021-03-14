@@ -229,7 +229,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
               </div>
             </div>
 
-<<<<<<< Updated upstream
             <div class="input-group mb-3">
               <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
               <div class="input-group-append">
@@ -252,49 +251,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
               <input type="text" onkeypress="return angkahp(event)" maxlength="12" minlength="11" class="form-control" name="no_hp" placeholder="No. HP" required>
               <div class="input-group-append">
                 <div class="input-group-text">
-=======
-        <div class="container">
-          <div class="row justify-content-center" style="margin:0;">
-          <div class="col col-lg-6  pt-5 d-flex text-center" data-aos="fade-right">
-            &ensp;
-            <img src="3.png">
-          </div>
-
-          <div class="col col-lg-6">
-        <div class="cardregis" data-aos="fade-left">
-          <div class="card-body login-card-body">
-              <h3 class="login-box-msg">Daftar Akun</h3>
-            <p class="login-box-msg">Silakan Mengisikan data berikut</p>
-
-            <form action="register.php" method="POST">
-              
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
-                    <div class="input-group-append">
-                      <div class="input-group-text">
-                        <!--<span class="fas fa-envelope"></span>-->
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
-                    <div class="input-group-append">
-                      <div class="input-group-text">
-                        <!--<span class="fas fa-envelope"></span>-->
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" name="email" placeholder="Email" required>
-                    <div class="input-group-append">
-                      <div class="input-group-text">
-                        <!--<span class="fas fa-envelope"></span>-->
-                      </div>
-                    </div>
-                  </div>
->>>>>>> Stashed changes
                   
                 </div>
               </div>

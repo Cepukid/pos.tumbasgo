@@ -4,12 +4,8 @@ $shop_id = $_SESSION['shop_id'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
-<<<<<<< Updated upstream
-    header("location:index.php");
-=======
     header("location:login.php");
 
->>>>>>> Stashed changes
 }
 
 
@@ -229,21 +225,11 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-<<<<<<< Updated upstream
-                <a href="grafik_laba.php" class="nav-link">
-=======
                 <a href="labachart.php" class="nav-link">
->>>>>>> Stashed changes
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Laba</p>
                 </a>
               </li>
-<<<<<<< Updated upstream
-=======
-
-            </ul>
-
->>>>>>> Stashed changes
 
             </ul>
           </li>
@@ -314,7 +300,6 @@ to get the desired effect
 
         <?php
          include ('db_connect.php');
-<<<<<<< Updated upstream
 
          $shop_id = $_SESSION['shop_id'];
         $count_customer = mysqli_query($con,"SELECT * FROM customers WHERE shop_id = $shop_id");
@@ -329,21 +314,6 @@ to get the desired effect
 
         $count_order = mysqli_query($con,"SELECT * FROM order_list WHERE shop_id = $shop_id");
         $total_orders = mysqli_num_rows($count_order);
-=======
-
-        $count_customer = mysqli_query($con,"SELECT * FROM customers WHERE shop_id=$shop_id");
-        $total_customer=mysqli_num_rows($count_customer);
-
-        $count_suppliers = mysqli_query($con,"SELECT * FROM suppliers WHERE shop_id=$shop_id");
-        $total_suppliers=mysqli_num_rows($count_suppliers);
-
-
-        $count_products = mysqli_query($con,"SELECT * FROM products WHERE shop_id=$shop_id");
-        $total_products=mysqli_num_rows($count_products);
-
-        $count_order = mysqli_query($con,"SELECT * FROM order_list WHERE shop_id=$shop_id");
-        $total_orders=mysqli_num_rows($count_order);
->>>>>>> Stashed changes
 
 
 
@@ -457,14 +427,9 @@ to get the desired effect
 
                       include ('my_function.php');
                       $currency=getCurrency();
-<<<<<<< Updated upstream
                       $shop_id = $_SESSION['shop_id'];
                       
                       $sql="SELECT * FROM products WHERE shop_id = '$shop_id' ORDER BY product_id DESC";
-=======
-
-                      $sql="SELECT * FROM products  WHERE shop_id=$shop_id ORDER BY product_id DESC";
->>>>>>> Stashed changes
                       $result = mysqli_query ($con,$sql);
                       
                       $i=1;
@@ -541,11 +506,7 @@ to get the desired effect
                     <?php
 
 
-<<<<<<< Updated upstream
                     $sql="SELECT * FROM order_list WHERE shop_id = $shop_id ORDER BY order_id DESC";
-=======
-                    $sql="SELECT * FROM order_list  WHERE shop_id=$shop_id ORDER BY order_id DESC";
->>>>>>> Stashed changes
                     $result = mysqli_query ($con,$sql);
                     $i=1;
                     while($row = mysqli_fetch_array($result))
