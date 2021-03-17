@@ -56,7 +56,7 @@ function getTotalIncome()
 //  $result = mysqli_query($con,"SELECT SUM('product_price') AS value_sum FROM order_details");
 //  $row = mysqli_fetch_assoc($result);
 //  $sum = $row['value_sum'];
-    $sql = mysqli_query($con, "SELECT SUM (income_amount) as total FROM income WHERE shop_id = $shop_id");
+    $sql = mysqli_query($con, "SELECT SUM(income_amount) as total FROM income WHERE shop_id = $shop_id");
     $row = mysqli_fetch_array($sql);
     $sum = $row['total'];
 

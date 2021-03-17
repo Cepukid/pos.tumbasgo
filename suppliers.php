@@ -18,7 +18,7 @@ else {
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Suppliers</title>
+    <title>Pemasok</title>
     <link href="assets/img/gallery/logo.png" rel="icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,168 +80,171 @@ else {
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
 
-             <!-- Sidebar Menu -->
+            <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="dashboard.php" class="nav-link">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="dashboard.php" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dasbor
+                    </p>
+                    </a>
 
-                            </p>
+                </li>
+                <li class="nav-item">
+                    <a href="customers.php" class="nav-link">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    <p>
+                        Pelanggan
+                    </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="suppliers.php" class="nav-link active">
+                    <i class="nav-icon fas fa-people-carry"></i>
+                    <p>
+                        Pemasok
+                    </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="category.php" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Kategori Produk
+                    </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link">
+                    <i class="nav-icon fas fa-shopping-bag"></i>
+                    <p>
+                        Produk
+                    </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="orders.php" class="nav-link">
+                    <i class="nav-icon fas fa-sort-amount-up"></i>
+                    <p>
+                        Pesanan
+                    </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="expense.php" class="nav-link">
+                    <i class="nav-icon fas fa-chart-line"></i>
+                    <p>
+                        Pengeluaran
+                    </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Laporan
+                        <i class="right fas fa-angle-left"></i>
+
+                    </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="sales_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Penjualan</p>
                         </a>
                     </li>
-          <li class="nav-item">
-            <a href="customers.php" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
-              <p>
-                Pelanggan
+                    <li class="nav-item">
+                        <a href="expense_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Pengeluaran</p>
+                        </a>
+                    </li>
 
-              </p>
-            </a>
-          </li>
+                    <li class="nav-item">
+                        <a href="sales_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Penjualan </p>
+                        </a>
+                    </li>
 
-          <li class="nav-item">
-            <a href="suppliers.php" class="nav-link active">
-              <i class="nav-icon fas fa-people-carry"></i>
-              <p>
-                Suplier
+                    <li class="nav-item">
+                        <a href="expense_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Pengeluaran</p>
+                        </a>
+                    </li>
 
-              </p>
-            </a>
-          </li>
+                    </ul>
+                </li>
 
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link">
+                    <i class="nav-icon fas fa-cog"></i>
+                    <p>
+                        Pengaturan
+                        <i class="right fas fa-angle-left"></i>
 
-          <li class="nav-item">
-            <a href="category.php" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Kategori Produk
+                    </p>
+                    </a>
 
-              </p>
-            </a>
-          </li>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="shop_information.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Informasi Toko</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="all_users.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pengguna</p>
+                        </a>
+                    </li>
+                    </ul>
+                </li>
 
-          <li class="nav-item">
-            <a href="products.php" class="nav-link">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>
-                Produk
+                <li class="nav-item">
+                  <a href="upgrade.php" class="nav-link">
+                    <i class="nav-icon fas fa-paper-plane"></i>
+                    <p>
+                      Upgrade
+                    </p>
+                  </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="logout.php" class="nav-link">
+                    <i class="nav-icon fas fa-power-off"></i>
+                    <p>
+                        Keluar
+                    </p>
+                    </a>
+                </li>
 
-
-          <li class="nav-item">
-            <a href="orders.php" class="nav-link">
-              <i class="nav-icon fas fa-sort-amount-up"></i>
-              <p>
-                Pesanan
-
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="expense.php" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
-              <p>
-                Pengeluaran
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Laporan
-                <i class="right fas fa-angle-left"></i>
-
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="sales_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Penjualan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="expense_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Laporan Pemasukan</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="sales_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Grafik Penjualan </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="expense_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Grafik Pengeluaran</p>
-                </a>
-              </li>
-
-            </ul>
+                &ensp;
+                &ensp;
 
 
-          </li>
-
-          <li class="nav-item">
-            <a href="products.php" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Pengaturan
-                <i class="right fas fa-angle-left"></i>
-
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="shop_information.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="all_users.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pengguna</p>
-                </a>
-              </li>
-            </ul>
-
-          </li>
-
-          <li class="nav-item">
-            <a href="logout.php" class="nav-link">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Keluar
-              </p>
-            </a>
-          </li>
-
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
+            <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
@@ -270,9 +273,9 @@ else {
                         <div class="card-header">
                             <button type="button" onclick="location.href = 'add_suppliers.php';"
                                     class="btn btn-primary float-right">
-                                <i class='fas fa-plus-circle'></i> Add Suppliers
+                                <i class='fas fa-plus-circle'></i> Tambah Pemasok
                             </button>
-                            <h3 class="card-title">All suppliers information</h3>
+                            <h3 class="card-title font-weight-bold text-primary" style="color: #414FB7;"">Informasi Pemasok</h3>
 
                         </div>
 
@@ -283,11 +286,11 @@ else {
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Suppliers Name</th>
-                                    <th>Suppliers Contact Person</th>
-                                    <th>Suppliers Email</th>
-                                    <th>Suppliers Phone</th>
-                                    <th>Suppliers Address</th>
+                                    <th>Nama Pemasok</th>
+                                    <th>Nama Kontak Pemasok</th>
+                                    <th>Email Pemasok</th>
+                                    <th>Nomor Telepon Pemasok</th>
+                                    <th>Alamat Pemasok</th>
                                     <?php
                                     $user_type = $_SESSION['user_type'];
                                     $shop_id = $_SESSION['shop_id'];
@@ -295,7 +298,7 @@ else {
 
 
                                         ?>
-                                        <th>Action</th>
+                                        <th>Aksi</th>
 
                                         <?php
                                     }

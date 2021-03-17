@@ -164,7 +164,7 @@
               <br>
               <br>
                 <h4 class="title"><a href="">Transaksi</a></h4>
-                <p class="description">Transaksi lebih cepat dan mudah dipahami.</p>
+                <p class="description">Transaksi dilakukan lebih cepat dan mudah dipahami.</p>
               </div>
             </div>
   
@@ -390,9 +390,9 @@
                 <li>Struk dengan logo KakaPos</li>
                 <li class="na">Laporan</li>
               </ul>
-              <!-- <div class="btn-wrap">
-                <a href="#" class="btn-buy">Beli</a>
-              </div> -->
+              <div class="btn-wrap">
+                <a class="font-weight-bold" style="color: #414FB7;">Kakatoo Digital Media</a>
+              </div>
             </div>
           </div>
 
@@ -406,9 +406,9 @@
                 <li>Struk dengan logo pribadi</li>
                 <li>laporan</li>
               </ul>
-              <!-- <div class="btn-wrap">
-                <a href="#" class="btn-buy">Beli</a>
-              </div> -->
+              <div class="btn-wrap">
+                <a class="font-weight-bold" style="color: #414FB7;">Kakatoo Digital Media</a>
+              </div>
             </div>
           </div>
 
@@ -422,9 +422,9 @@
                 <li>Struk dengan logo pribadi</li>
                 <li>laporan</li>
               </ul>
-              <!-- <div class="btn-wrap">
-                <a href="#" class="btn-buy">Beli</a>
-              </div> -->
+              <div class="btn-wrap">
+                <a class="font-weight-bold" style="color: #414FB7;">Kakatoo Digital Media</a>
+              </div>
             </div>
           </div>
 

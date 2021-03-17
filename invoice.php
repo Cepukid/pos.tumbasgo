@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
 
-    <title>Order Invoice</title>
+    <title>Faktur Pesanan</title>
     <link href="assets/img/gallery/logo.png" rel="icon">
 
     <link rel='stylesheet' type='text/css' href='css/style.css'/>
@@ -19,7 +19,7 @@
 
 <div id="page-wrap">
 
-    <textarea id="header">INVOICE</textarea>
+    <textarea id="header">FAKTUR</textarea>
 
     <div id="identity">
 
@@ -34,7 +34,7 @@
 
 
         <p id="address">
-            CUSTOMER NAME<br>
+            NAMA PELANGGAN<br>
             <?php echo $data['customer_name'] ?><br>
 <!--            --><?php //echo 'Phone: '. $data['phone'] ?><!--<br>-->
 <!--            --><?php //echo $data['additional_phone'] ?><!--<br>-->
@@ -75,7 +75,7 @@
 
             <tr>
 
-                <td class="meta-head">Order Type</td>
+                <td class="meta-head">Tipe Pesanan</td>
                 <td><p id="date"><?php echo $data['order_type']?> </p></td>
             </tr>
             <tr>
@@ -94,23 +94,23 @@
 
         <table id="meta">
             <tr>
-                <td class="meta-head">Invoice #</td>
+                <td class="meta-head">Faktur #</td>
                 <td><p><?php echo  $_GET['id'] ?></p></td>
             </tr>
             <tr>
 
-                <td class="meta-head">Time & Date</td>
+                <td class="meta-head">Waktu dan Tanggal</td>
                 <td><p id="date"><?php echo $data['order_time'].', '.date('d F, Y', strtotime($data['order_date']))?></p></td>
             </tr>
             <tr>
-                <td class="meta-head">Served By</td>
+                <td class="meta-head">Dilayani Oleh</td>
                 <td>
                     <div class="due"><?php echo $data['served_by'] ?></div>
                 </td>
             </tr>
 
             <tr>
-                <td class="meta-head">Payment Method</td>
+                <td class="meta-head">Metode Pembayaran</td>
                 <td>
                     <div class="due"><?php echo strtoupper( $data['order_payment_method']) ?></div>
                 </td>
@@ -125,10 +125,10 @@
 
         <tr>
             <th>Item</th>
-            <th>Description</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Price</th>
+            <th>Deskripsi</th>
+            <th>Harga satuan</th>
+            <th>Jumlah Item</th>
+            <th>Harga</th>
         </tr>
 
 
@@ -195,7 +195,7 @@
     </table>
 
     <div id="terms">
-        <h5>THANK YOU</h5>
+        <h5>Terima Kasih</h5>
 <!--        <p>--><?php //echo strtoupper(getAmountInWord($final_price)) . ' ONLY' ?><!--</p>-->
     </div>
 

@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Edit Product</title>
+  <title>Edit Produk</title>
   <link href="assets/img/gallery/logo.png" rel="icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -157,169 +157,172 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a href="dashboard.php" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dasbor
+                    </p>
+                    </a>
 
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="customers.php" class="nav-link">
-              <i class="nav-icon fas fa-user-tie"></i>
-              <p>
-                Customers
+                </li>
+                <li class="nav-item">
+                    <a href="customers.php" class="nav-link">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    <p>
+                        Pelanggan
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="suppliers.php" class="nav-link">
-              <i class="nav-icon fas fa-people-carry"></i>
-              <p>
-                Suppliers
-
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="suppliers.php" class="nav-link">
+                    <i class="nav-icon fas fa-people-carry"></i>
+                    <p>
+                        Pemasok
+                    </p>
+                    </a>
+                </li>
 
 
-          <li class="nav-item">
-            <a href="category.php" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Products Category
+                <li class="nav-item">
+                    <a href="category.php" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Kategori Produk
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a href="products.php" class="nav-link active">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>
-                Products
-
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link active">
+                    <i class="nav-icon fas fa-shopping-bag"></i>
+                    <p>
+                        Produk
+                    </p>
+                    </a>
+                </li>
 
 
-          <li class="nav-item">
-            <a href="orders.php" class="nav-link">
-              <i class="nav-icon fas fa-sort-amount-up"></i>
-              <p>
-                Orders
+                <li class="nav-item">
+                    <a href="orders.php" class="nav-link">
+                    <i class="nav-icon fas fa-sort-amount-up"></i>
+                    <p>
+                        Pesanan
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="expense.php" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
-              <p>
-                Expense
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Reports
-                <i class="right fas fa-angle-left"></i>
-
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="sales_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Report</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="expense_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Report</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="sales_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Chart </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="expense_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Chart</p>
-                </a>
-              </li>
-
-            </ul>
+                <li class="nav-item">
+                    <a href="expense.php" class="nav-link">
+                    <i class="nav-icon fas fa-chart-line"></i>
+                    <p>
+                        Pengeluaran
+                    </p>
+                    </a>
+                </li>
 
 
-          </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Laporan
+                        <i class="right fas fa-angle-left"></i>
 
-          <li class="nav-item">
-            <a href="products.php" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Settings
-                <i class="right fas fa-angle-left"></i>
+                    </p>
+                    </a>
 
-              </p>
-            </a>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="sales_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Penjualan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="expense_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Pengeluaran</p>
+                        </a>
+                    </li>
 
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="shop_information.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Shop Information</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="all_users.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
-                </a>
-              </li>
-            </ul>
+                    <li class="nav-item">
+                        <a href="sales_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Penjualan </p>
+                        </a>
+                    </li>
 
-          </li>
+                    <li class="nav-item">
+                        <a href="expense_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Pengeluaran</p>
+                        </a>
+                    </li>
+                    
+                    </ul>
+                </li>
 
-          <li class="nav-item">
-            <a href="logout.php" class="nav-link">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Logout
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link">
+                    <i class="nav-icon fas fa-cog"></i>
+                    <p>
+                        Pengaturan
+                        <i class="right fas fa-angle-left"></i>
+
+                    </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="shop_information.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Informasi Toko</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="all_users.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pengguna</p>
+                        </a>
+                    </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="upgrade.php" class="nav-link">
+                    <i class="nav-icon fas fa-paper-plane"></i>
+                    <p>
+                      Upgrade
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="logout.php" class="nav-link">
+                    <i class="nav-icon fas fa-power-off"></i>
+                    <p>
+                        Keluar
+                    </p>
+                    </a>
+                </li>
+
+                &ensp;
+                &ensp;
 
 
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+            <!-- /.sidebar -->
+    </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -343,7 +346,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="card">
             <div class="card-header">
 
-              <h3 class="card-title">Product Details</h3>
+              <h3 class="card-title">Detail Produk</h3>
 
             </div>
 
@@ -353,7 +356,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                   <div align="center" class="form-group ">
-                      <label for="exampleInputImage">Product Image</label>
+                      <label for="exampleInputImage">Gambar Produk</label>
 
 
                       <div align="center">
@@ -365,14 +368,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </div>
 
                 <div class="form-group">
-                  <label for="exampleInputProductName">Product Name</label>
+                  <label for="exampleInputProductName">Nama Produk</label>
                   <input type="text" name="product_name" class="form-control" id="exampleInputProductName"
                          value="<?php echo $row['product_name'] ?>">
                 </div>
 
 
                 <div class="form-group">
-                  <label for="exampleInputProductCode">Product Code</label>
+                  <label for="exampleInputProductCode">Kode Produk</label>
                   <input type="text" name="product_code" class="form-control" id="exampleInputProductCode"
                          value="<?php echo $row['product_code'] ?>">
                 </div>
@@ -381,7 +384,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
 
                   <div class="form-group">
-                    <label for="exampleInputCategory">Product Category</label>
+                    <label for="exampleInputCategory">Kategori Produk</label>
                     <select class="form-control" name="product_category_id" id="exampleInputCategory">
                       <?php echo "<option value='" . $row['product_category_id'] . "'>" . $category_name . "</option>"; ?>
 
@@ -400,20 +403,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div class="form-group">
-                  <label for="exampleInputDescription">Product Description</label>
+                  <label for="exampleInputDescription">Deskripsi Produk</label>
                   <input type="text" name="product_description" class="form-control" id="exampleInputDescription"
                          value="<?php echo $row['product_description'] ?>">
                 </div>
 
 
                 <div class="form-group">
-                  <label for="exampleInputPrice">Product Price</label>
+                  <label for="exampleInputPrice">Harga Produk</label>
                   <input type="number" name="product_price" class="form-control" id="exampleInputPrice"
                          value="<?php echo $row['product_sell_price'] ?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputWeight">Product Weight</label>
+                  <label for="exampleInputWeight">Berat Produk</label>
                   <input type="number" name="product_weight" class="form-control" id="exampleInputPrice"
                          value="<?php echo $row['product_weight'] ?>">
 
@@ -423,7 +426,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
 
                   <div class="form-group">
-                    <label for="exampleInputWeightUnit">Product Weight Unit</label>
+                    <label for="exampleInputWeightUnit">Satuan Berat Produk</label>
                     <select class="form-control" name="product_weight_unit_id">
                       <?php echo "<option value='" . $row['product_weight_unit_id'] . "'>" . $weight_unit_name . "</option>"; ?>
 
@@ -444,7 +447,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="form-group">
 
                     <div class="form-group">
-                      <label for="exampleInputSupplier">Product Supplier</label>
+                      <label for="exampleInputSupplier">Pemasok Produk</label>
                       <select class="form-control" name="product_supplier_id">
                         <?php echo "<option value='" . $row['product_supplier_id'] . "'>" . $suppliers_name . "</option>"; ?>
 
@@ -464,7 +467,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputStock">Product Stock</label>
+                    <label for="exampleInputStock">Stok Produk</label>
                     <input type="number" name="product_stock" class="form-control" id="exampleInputStock"
                            value="<?php echo $row['product_stock'] ?>">
                   </div>

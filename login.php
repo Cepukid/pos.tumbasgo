@@ -11,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-//$id=md5($id1);
-//$password=md5($password1);
+  $password=md5($password);
 
 
     if (empty($email)) {

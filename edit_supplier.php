@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Update Suppliers</title>
+  <title>Update Pemasok</title>
   <link href="assets/img/gallery/logo.png" rel="icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -138,169 +138,172 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                    with font-awesome or any other icon font library -->
+                <li class="nav-item ">
+                    <a href="dashboard.php" class="nav-link">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Dasbor
+                    </p>
+                    </a>
 
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="customers.php" class="nav-link ">
-              <i class="nav-icon fas fa-user-tie"></i>
-              <p>
-                Customer
+                </li>
+                <li class="nav-item">
+                    <a href="customers.php" class="nav-link">
+                    <i class="nav-icon fas fa-user-tie"></i>
+                    <p>
+                        Pelanggan
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="suppliers.php" class="nav-link active">
-              <i class="nav-icon fas fa-people-carry"></i>
-              <p>
-                Suppliers
-
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="category.php" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Products Category
-
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="suppliers.php" class="nav-link active">
+                    <i class="nav-icon fas fa-people-carry"></i>
+                    <p>
+                        Pemasok
+                    </p>
+                    </a>
+                </li>
 
 
-          <li class="nav-item">
-            <a href="products.php" class="nav-link">
-              <i class="nav-icon fas fa-shopping-bag"></i>
-              <p>
-                Products
+                <li class="nav-item">
+                    <a href="category.php" class="nav-link">
+                    <i class="nav-icon fas fa-book"></i>
+                    <p>
+                        Kategori Produk
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-          </li>
-
-
-          <li class="nav-item">
-            <a href="orders.php" class="nav-link">
-              <i class="nav-icon fas fa-sort-amount-up"></i>
-              <p>
-                Orders
-
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="expense.php" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
-              <p>
-                Expense
-              </p>
-            </a>
-          </li>
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link">
+                    <i class="nav-icon fas fa-shopping-bag"></i>
+                    <p>
+                        Produk
+                    </p>
+                    </a>
+                </li>
 
 
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
-                Reports
-                <i class="right fas fa-angle-left"></i>
+                <li class="nav-item">
+                    <a href="orders.php" class="nav-link">
+                    <i class="nav-icon fas fa-sort-amount-up"></i>
+                    <p>
+                        Pesanan
+                    </p>
+                    </a>
+                </li>
 
-              </p>
-            </a>
-
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="sales_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Report</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="expense_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Report</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="sales_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Sales Chart </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="expense_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Expense Chart</p>
-                </a>
-              </li>
-
-            </ul>
+                <li class="nav-item">
+                    <a href="expense.php" class="nav-link">
+                    <i class="nav-icon fas fa-chart-line"></i>
+                    <p>
+                        Pengeluaran
+                    </p>
+                    </a>
+                </li>
 
 
-          </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-chart-pie"></i>
+                    <p>
+                        Laporan
+                        <i class="right fas fa-angle-left"></i>
 
-          <li class="nav-item">
-            <a href="products.php" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Settings
-                <i class="right fas fa-angle-left"></i>
+                    </p>
+                    </a>
 
-              </p>
-            </a>
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="sales_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Penjualan</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="expense_report.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Laporan Pengeluaran</p>
+                        </a>
+                    </li>
 
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="shop_information.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Shop Information</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="all_users.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>All Users</p>
-                </a>
-              </li>
-            </ul>
+                    <li class="nav-item">
+                        <a href="sales_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Penjualan </p>
+                        </a>
+                    </li>
 
-          </li>
+                    <li class="nav-item">
+                        <a href="expense_chart.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Grafik Pengeluaran</p>
+                        </a>
+                    </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="products.php" class="nav-link">
+                    <i class="nav-icon fas fa-cog"></i>
+                    <p>
+                        Pengaturan
+                        <i class="right fas fa-angle-left"></i>
+
+                    </p>
+                    </a>
+
+                    <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                        <a href="shop_information.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Informasi Toko</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="all_users.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Pengguna</p>
+                        </a>
+                    </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a href="upgrade.php" class="nav-link">
+                    <i class="nav-icon fas fa-paper-plane"></i>
+                    <p>
+                      Upgrade
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="logout.php" class="nav-link">
+                    <i class="nav-icon fas fa-power-off"></i>
+                    <p>
+                        Keluar
+                    </p>
+                    </a>
+                </li>
+
+                &ensp;
+                &ensp;
 
 
-          <li class="nav-item">
-            <a href="logout.php" class="nav-link">
-              <i class="nav-icon fas fa-power-off"></i>
-              <p>
-                Logout
-              </p>
-            </a>
-          </li>
-
-
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+            <!-- /.sidebar -->
+    </aside>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -324,7 +327,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="card">
             <div class="card-header">
 
-              <h3 class="card-title">Update suppliers information</h3>
+              <h3 class="card-title font-weight-bold text-primary" style="color: #414FB7;">Update Informasi Pemasok</h3>
 
             </div>
 
@@ -339,32 +342,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputSupplierName">Suppliers Name</label>
+                  <label for="exampleInputSupplierName">Nama Pemasok</label>
                   <input type="text" name="supplier_name" class="form-control" id="exampleInputSupplierName"
                          value="<?php echo $row['suppliers_name'] ?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputSupplierName">Supplier Contact Person Name</label>
+                  <label for="exampleInputSupplierName">Nama Telepon Pemasok</label>
                   <input type="text" name="supplier_contact_person" class="form-control" id="exampleInputSupplierName"
                          value="<?php echo $row['suppliers_contact_person'] ?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email Address <small>[Not Editable]</small></label>
+                  <label for="exampleInputEmail1">Email<small>[Not Editable]</small></label>
                   <input type="email" name="supplier_email" class="form-control" id="exampleInputEmail1" readonly
                          value="<?php echo $row['suppliers_email'] ?>">
                 </div>
 
 
                 <div class="form-group">
-                  <label for="exampleInputPhone">Phone Number <small>[Not Editable]</small></label>
+                  <label for="exampleInputPhone">Nomor Telepon<small>[Not Editable]</small></label>
                   <input type="tel" name="supplier_phone" class="form-control" id="exampleInputPhone" readonly
                          value="<?php echo $row['suppliers_cell'] ?>">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputAddress">Supplier Address</label>
+                  <label for="exampleInputAddress">Alamat Pemasok</label>
                   <input type="text" name="supplier_address" class="form-control" id="exampleInputAddress"
                          value="<?php echo $row['suppliers_address'] ?>">
                 </div>
@@ -373,7 +376,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </div>
               <!-- /.card-body -->
               <div class="card-footer">
-                <button type="submit" id="update_supplier" class="btn btn-primary"> <i class="fa fa-check-circle"></i> Update Supplier</button>
+                <button type="submit" id="update_supplier" class="btn btn-primary"> <i class="fa fa-check-circle"></i> Update Pemasok</button>
               </div>
             </form>
 
@@ -439,17 +442,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       },
       messages: {
         supplier_name: {
-          required: "Please enter supplier name"
+          required: "Mohon masukkan nama pemasok"
         },
         email: {
-          required: "Please enter a email address",
-          email: "Please enter a valid email address"
+          required: "Mohon masukkan email",
+          email: "Mohon masukkan email yang sesuai"
         },
         supplier_phone: {
-          required: "Please enter supplier phone number"
+          required: "Mohon masukkan nomor telepon pemasok"
         },
         supplier_address: {
-          required: "Please enter supplier address"
+          required: "Mohon masukkan alamat pemasok"
         },
 
       },

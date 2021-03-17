@@ -20,7 +20,7 @@ else {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Dashboard </title>
+  <title>Dasbor</title>
   <link href="assets/img/gallery/logo.png" rel="icon">
 
 
@@ -96,8 +96,7 @@ to get the desired effect
             <a href="dashboard.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
-
+                Dasbor
               </p>
             </a>
 
@@ -107,7 +106,6 @@ to get the desired effect
               <i class="nav-icon fas fa-user-tie"></i>
               <p>
                 Pelanggan
-
               </p>
             </a>
           </li>
@@ -116,8 +114,7 @@ to get the desired effect
             <a href="suppliers.php" class="nav-link">
               <i class="nav-icon fas fa-people-carry"></i>
               <p>
-                Suplier
-
+                Pemasok
               </p>
             </a>
           </li>
@@ -128,7 +125,6 @@ to get the desired effect
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Kategori Produk
-
               </p>
             </a>
           </li>
@@ -138,7 +134,6 @@ to get the desired effect
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
                 Produk
-
               </p>
             </a>
           </li>
@@ -149,7 +144,6 @@ to get the desired effect
               <i class="nav-icon fas fa-sort-amount-up"></i>
               <p>
                 Pesanan
-
               </p>
             </a>
           </li>
@@ -161,15 +155,6 @@ to get the desired effect
                 Pengeluaran
               </p>
             </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="income.php" class="nav-link">
-              <i class="nav-icon fas fa-chart-line"></i>
-                <p>
-                  Pemasukan
-                </p>
-              </a>
           </li>
 
 
@@ -198,13 +183,6 @@ to get the desired effect
               </li>
 
               <li class="nav-item">
-                <a href="income_report.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                    <p>Laporan Pemasukan</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="sales_chart.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Grafik Penjualan </p>
@@ -217,38 +195,26 @@ to get the desired effect
                   <p>Grafik Pengeluaran</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="income_chart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Grafik Pemasukan</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="labachart.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Grafik Laba</p>
-                </a>
-              </li>
 
             </ul>
           </li>
 
+          
+          
           <li class="nav-item">
             <a href="products.php" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Pengaturan
                 <i class="right fas fa-angle-left"></i>
-
               </p>
             </a>
-
+            
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="shop_information.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi</p>
+                  <p>Informasi Toko</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -258,8 +224,16 @@ to get the desired effect
                 </a>
               </li>
             </ul>
-
           </li>
+          
+            <li class="nav-item">
+              <a href="upgrade.php" class="nav-link">
+                <i class="nav-icon fas fa-paper-plane"></i>
+                <p>
+                  Upgrade
+                </p>
+              </a>
+            </li>
 
           <li class="nav-item">
             <a href="logout.php" class="nav-link">
@@ -322,13 +296,14 @@ to get the desired effect
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $total_customer ?></h3>
-
-                <p>Total Pelanggan</p>
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Total Pelanggan
+                  </div>
               </div>
-              <div class="icon">
+              <div class="icon" style="color: #414FB7;">
                 <i class="ion ion-person-add"></i>
               </div>
               <a href="customers.php" class="small-box-footer">Selengkapnya  <i class="fas fa-arrow-circle-right"></i></a>
@@ -337,13 +312,14 @@ to get the desired effect
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $total_suppliers ?></h3>
-
-                <p>Total Suplier</p>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Total Pemasok
+                  </div>
               </div>
-              <div class="icon">
+              <div class="icon" style="color: #414FB7;">
                 <i class="ion ion-stats-bars"></i>
               </div>
               <a href="suppliers.php" class="small-box-footer">Selengkapnya  <i class="fas fa-arrow-circle-right"></i></a>
@@ -352,13 +328,14 @@ to get the desired effect
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-gradient-navy">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $total_products ?></h3>
-
-                <p>Total Produk</p>
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                      Total Produk
+                  </div>
               </div>
-              <div class="icon">
+              <div class="icon" style="color: #414FB7;">
                 <i class="ion ion-bag"></i>
               </div>
               <a href="products.php" class="small-box-footer">Selengkapnya  <i class="fas fa-arrow-circle-right"></i></a>
@@ -367,13 +344,14 @@ to get the desired effect
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-white">
               <div class="inner">
                 <h3><?php echo $total_orders ?></h3>
-
-                <p>Total Pesanan</p>
+                  <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                      Total Pesanan
+                  </div>
               </div>
-              <div class="icon">
+              <div class="icon" style="color:#414FB7;">
                 <i class="ion ion-pie-graph"></i>
               </div>
               <a href="orders.php" class="small-box-footer">Selengkapnya  <i class="fas fa-arrow-circle-right"></i></a>
@@ -383,14 +361,6 @@ to get the desired effect
 
 
         </div>
-
-
-
-
-
-
-
-
 
           <div class="row">
             <div class="col-lg-6">
@@ -418,7 +388,7 @@ to get the desired effect
                         <th>Nama</th>
                         <th>Harga</th>
                         <th>Stok</th>
-                        <th>Supplier</th>
+                        <th>Pemasok</th>
 
                       </tr>
                       </thead>
