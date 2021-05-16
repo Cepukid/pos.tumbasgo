@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $_SESSION['user_type'] = $row['user_type'];
       $_SESSION['shop_id'] = $row['shop_id'];
       $shop_id= $_SESSION['shop_id'];
-      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id AND shop_type = '$shop_type'");
+      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id");
       $rows = $result->fetch_assoc();
       $_SESSION['shop_type']=$rows['shop_type'];
 
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header><!-- End Header -->
     
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="masuk" class="d-flex align-items-center">
 
         <div class="container">
         <div class="row">
@@ -163,12 +163,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <!-- end form login -->
             </div>
             <!-- gambar -->
-
+                        
             <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
             <img src="assets/img/hero-img.png" class="img-fluid animated" alt="">
             </div>
         </div>
         </div>
+                      
 
     </section><!-- End Hero -->
 

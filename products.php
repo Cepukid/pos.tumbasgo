@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$shop_type = $_SESSION['shop_type'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -386,14 +386,17 @@ else {
 
 <!-- page script for export data from data tables -->
 <script>
-    $(function () {
+var shop_type = "<?php echo $shop_type; ?>";
+
+$(function() {
+    if(shop_type=="premium"){
         $("#example1").DataTable({
+
             "responsive": true,
             "autoWidth": true,
 
             dom: 'Bfrtip',
             buttons: [
-
                 {
                     extend: 'excelHtml5',
                     exportOptions: {
@@ -424,8 +427,8 @@ else {
 
             ]
         });
-
-    });
+    }
+});
 </script>
 
 <!-- <script>

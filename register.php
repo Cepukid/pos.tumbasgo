@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   $email = $_POST['email'];
   $cell = $_POST['no_hp'];
   $password = $_POST['password'];
-  $password = md5(password);
+  $password = md5('password');
   $password2 = $_POST['password2'];
 
   $shop_name = $_POST['shop_name'];
@@ -63,88 +63,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
   if ($status1 == "OK") {
-    include('db_connect.php');
 
-     //cek username dan email terdaftar
-     $cek_usermail = mysqli_query($con,"SELECT * FROM users WHERE email = '".$email."' ");
-     $r_cek = mysqli_num_rows($cek_usermail);
-     if ($r_cek > 0){
-       echo '<script>alert("Email sudah terdaftar hehe")</script>';
-     } elseif (($_POST['password'])!= ($_POST['password2'])){
-         //Cek Password sama atau tidak
-         echo '<script>alert("Konfirmasi Password salah")</script>';
-       }
-       else { 
-             $tambah =  "INSERT INTO shop (`shop_name`,`shop_contact`,`shop_email`,`shop_address`,`tax`,currency_symbol,`shop_status`,`shop_type`) 
-             VALUE ('$shop_name','$shop_contact','$email','$shop_address','0','Rp','OPEN','free')";
+      include('db_connect.php');
 
-             if(mysqli_query($con, $tambah)){ 
-               
-                 $id=mysqli_insert_id($con);
-                 $tambah1 = "INSERT INTO users (`name`,
-                 `cell`,
-                 `email`,
-                 `password`,
-                 `user_type`,
-                 `shop_id`,
-                 `token`,
-                 `verifikasi`,
-                 `shop_type`) VALUE ('$name',
-                 '$cell',
-                 '$email',
-                 '$password',
-                 'admin',
-                 '$id',
-                 '$token',
-                 'Inaktif',
-                 'free')";
-                 $result = mysqli_query($con, $tambah1);
-                 
-                 $last_id = mysqli_insert_id($con);
-                 $url = 'http://'.$_SERVER['SERVER_NAME'].':8080/tumbasgo/verify.php?id='.$last_id.'&token='.$token; 
+      //cek username dan email terdaftar
+      $cek_usermail = mysqli_query($con,"SELECT * FROM users WHERE email = '".$email."' ");
+      $r_cek = mysqli_num_rows($cek_usermail);
+      if ($r_cek > 0){
+        echo '<script>alert("Email sudah terdaftar hehe")</script>';
+      } elseif (($_POST['password'])!= ($_POST['password2'])){
+          //Cek Password sama atau tidak
+          echo '<script>alert("Konfirmasi Password salah")</script>';
+        }
+        else { 
+              $tambah =  "INSERT INTO shop (`shop_name`,`shop_contact`,`shop_email`,`shop_address`,`tax`,currency_symbol,`shop_status`,`shop_type`) 
+              VALUE ('$shop_name','$shop_contact','$email','$shop_address','0','Rp','OPEN','free')";
 
-                 $output = '<div> Terimakasih telah registrasi di Pos Kakatoo, silahkan klik link berikut untuk melanjutkan verifikasi <br>' .$url. '</div>';
+              if(mysqli_query($con, $tambah)){ 
+                
+                  $id=mysqli_insert_id($con);
+                  $tambah1 = "INSERT INTO users (`name`,
+                  `cell`,
+                  `email`,
+                  `password`,
+                  `user_type`,
+                  `shop_id`,
+                  `token`,
+                  `verifikasi`,
+                  `shop_type`) VALUE ('$name',
+                  '$cell',
+                  '$email',
+                  '$password',
+                  'admin',
+                  '$id',
+                  '$token',
+                  'Inaktif',
+                  'free')";
+                  $result = mysqli_query($con, $tambah1);
+                  
+                  $last_id = mysqli_insert_id($con);
+                  $url = 'http://'.$_SERVER['SERVER_NAME'].':8181/magang/pos.tumbasgo/verify.php?id='.$last_id.'&token='.$token; 
 
-               if($result == true ){
-                 //Load Composer's autoloader
-                 require 'C:\Users\user only\vendor\autoload.php';
-                                 
-                 //Instantiation and passing `true` enables exceptions
-                 $mail = new PHPMailer(true);
+                  $output = '<div> Terimakasih telah registrasi di Pos Kakatoo, silahkan klik link berikut untuk melanjutkan verifikasi <br>' .$url. '</div>';
 
-                   try {
-                       //Server settings
-                       //$mail->SMTPDebug = 2;                 //Enable verbose debug output
-                       
-                       $mail->isSMTP();                                            //Send using SMTP
-                       $mail->Host       = gethostbyname('smtp.gmail.com');                       //Set the SMTP server to send through
-                       $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                       $mail->Username   = 'info.kakatoo@gmail.com';                                  //SMTP username
-                       $mail->Password   = 'kakatoo12*';                               //SMTP password
-                       $mail->SMTPSecure = 'tls';    
-                       //$mail->SMTPAutoTLS = false;                            //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
-                       $mail->Port       = 587;                                  //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-                       $mail->SMTPOptions = array(
-                         'ssl' => array(
-                         'verify_peer' => false,
-                         'verify_peer_name' => false,
-                         'allow_self_signed' => true
-                         ));
+                if($result == true ){
+                  //Load Composer's autoloader
+                  require 'C:\Users\DIMAS BAGAS C\vendor\autoload.php';
+                                  
+                  //Instantiation and passing `true` enables exceptions
+                  $mail = new PHPMailer(true);
 
-                       //Recipients
-                       $mail->setFrom('info.kakatoo@gmail.com', 'Kakatoo ID');
-                       $mail->addAddress($email , $name);     //Add a recipient
+                    try {
+                        //Server settings
+                        //$mail->SMTPDebug = 2;                 //Enable verbose debug output
+                        
+                        $mail->isSMTP();                                            //Send using SMTP
+                        $mail->Host       = gethostbyname('smtp.gmail.com');                       //Set the SMTP server to send through
+                        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+                        $mail->Username   = 'info.kakatoo@gmail.com';                                  //SMTP username
+                        $mail->Password   = 'kakatoo12*';                               //SMTP password
+                        $mail->SMTPSecure = 'tls';    
+                        //$mail->SMTPAutoTLS = false;                            //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+                        $mail->Port       = 587;                                  //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+                        $mail->SMTPOptions = array(
+                          'ssl' => array(
+                          'verify_peer' => false,
+                          'verify_peer_name' => false,
+                          'allow_self_signed' => true
+                          ));
 
-                       //Content
-                       $mail->isHTML(true);
-                       
-                       //Set email format to HTML
-                       $mail->Subject = "Verifikasi Pendaftaran Member baru";
-                       $mail->Body    = $output;
-                       //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-                       
-                       $mail->send();
-                       echo '<script>alert( "Registrasi berhasil! Silahkan Verifikasi Email anda :) " )</script>';
+                        //Recipients
+                        $mail->setFrom('info.kakatoo@gmail.com', 'Kakatoo ID');
+                        $mail->addAddress($email , $name);     //Add a recipient
+
+                        //Content
+                        $mail->isHTML(true);
+                        
+                        //Set email format to HTML
+                        $mail->Subject = "Verifikasi Pendaftaran Member baru";
+                        $mail->Body    = $output;
+                        //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+                        
+                        $mail->send();
+                        echo '<script>alert( "Registrasi berhasil! Silahkan Verifikasi Email anda :) " )</script>';
                     } catch (Exception $e) {
                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                       }
@@ -168,6 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Kaka POS | Registrasi</title>
+  <link href="assets/img/gallery/logo.png" rel="icon">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -216,25 +218,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   </header>
   <!-- End Header -->
 
-  <section id="hero" class="d-flex align-items-center">
 
-
+  <!-- Navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
         <div class="container">
-          <div class="row justify-content-center" style="margin:0;">
-          <div class="col col-lg-6  pt-5 d-flex text-center" data-aos="fade-right">
-            &ensp;
-            <img src="3.png">
-          </div>
 
-          <div class="col col-lg-6">
-        <div class="cardregis" data-aos="fade-left">
-          <div class="card-body login-card-body">
-              <h3 class="login-box-msg">Daftar Akun</h3>
-            <p class="login-box-msg">Silakan Mengisikan data berikut </p>
+        </div>
+    </nav>
+</header>
 
-            <form action="register.php" method="POST">
-              
-                  <div class="input-group mb-2">
+
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <!-- For Demo Purpose -->
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <img src="3.png" alt="" class="img-fluid mb-3 d-none d-md-block">
+        </div>
+
+        <!-- Registeration Form -->
+        <div class="col-md-7 col-lg-6 ml-auto">
+        <form action="register.php" method="POST">
+                <h3 class="login-box-msg">Daftar Akun</h3>
+                <p class="login-box-msg">Silakan Mengisikan data berikut </p>
+                <div class="row">
+
+                <div class="input-group col-lg-12 mb-4">
                     <input type="text" class="form-control" name="name" placeholder="Nama Lengkap" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -243,7 +252,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                   </div>
 
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="text" class="form-control" name="shop_name" placeholder="Nama Toko" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -252,7 +261,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                   </div>
                   
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="text" class="form-control" name="email" placeholder="Email" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -261,7 +270,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                   </div>
                   
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="text" onkeypress="return angkahp(event)" maxlength="12" minlength="11" class="form-control" name="no_hp" placeholder="No. HP" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -270,7 +279,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                   </div>
 
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="text" class="form-control" name="alamat" placeholder="Alamat" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -279,7 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                   </div>
 
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="password" class="form-control" name="password" id="password" maxlength="8" minlength="8" placeholder="Password" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -287,9 +296,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                       </div>
                     </div>
                   </div>
-                  <div>
 
-                  <div class="input-group mb-2">
+                  <div class="input-group col-lg-12 mb-4">
                     <input type="password" class="form-control" name="password2" id="password2" maxlength="8" minlength="8" placeholder="Konfirmasi Password" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
@@ -297,37 +305,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                       </div>
                     </div>
                   </div>
+
+                  <div>
+
                   <div>
 
                   
               </div>
               </div>
 
-              
-
                 <!-- /.col -->
+                <!-- /.col -->
+
+                </div>
                 <div>
                   <button type="submit" class="btn btn-primary btn-block">Daftar</button>
                 </div>
-                <!-- /.col -->
 
-              <?php
+                <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   echo "<div  align='center'>" . $msg1 . "</div";
                 }
                 ?>
-
-              </div>
+                
             </form>
+        </div>
+    </div>
+</div>
 
-
-          </div>
-          <!-- /.login-card-body -->
-          </div>
-      </div>
-      </div>
-
-  </section>
 <!-- /.login-box -->
 
 <!-- jQuery -->

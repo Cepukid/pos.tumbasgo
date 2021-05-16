@@ -635,12 +635,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <script type="text/javascript">
-  var php_var = "<?php echo $number_rows; ?>";
+  var php_var = <?php echo $number_rows; ?>;
   var shop_type = "<?php echo $shop_type; ?>";
   
   $(document).on('click', '#add_product', function (e) {
     e.preventDefault();
-    if(php_var>25 && shop_type=="free"){
+    if(php_var>=25 && shop_type=="free"){
       swal.fire("OOPS!","Maaf Jumlah Produk Anda Sudah melebihi batas!","error");
     }else{
     Swal.fire({

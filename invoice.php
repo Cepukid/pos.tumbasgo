@@ -1,3 +1,8 @@
+<?php
+session_start();
+$shop_id = $_SESSION['shop_id'];
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,6 +32,7 @@
         include('db_connect.php');
         include("my_function.php");
         $getid = $_GET['id'];
+
         $my_result = mysqli_query($con, "SELECT * FROM order_list WHERE invoice_id='$getid'");
         $data = mysqli_fetch_array($my_result)
 
@@ -50,7 +56,7 @@
             <?php
 
 
-            $my_result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=1");
+            $my_result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id='$shop_id'");
             $shop_data = mysqli_fetch_array($my_result)
 
             ?>

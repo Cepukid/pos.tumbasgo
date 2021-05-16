@@ -1,5 +1,6 @@
 <?php
 session_start();
+$shop_type = $_SESSION['shop_type'];
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -278,6 +279,7 @@ else {
                                     <th>Jumlah Produk</th>
                                     <th>Berat Produk</th>
                                     <th>Harga Total</th>
+                                    <th>Total Laba</th>
                                     <th>Tanggal Pesanan</th>
 
 
@@ -292,6 +294,7 @@ else {
 
                                 $currency = getCurrency();
                                 $total_price = floatval(getTotalOrderPrice());
+                                $total_laba = floatval(getTotalLaba());
                                 $total_tax = floatval(getTotalTax());
                                 $total_discount = floatval(getTotalDiscount());
                                 $net_sales = $total_price + $total_tax - $total_discount;
@@ -310,6 +313,7 @@ else {
                                     echo "<td>" . $row['product_quantity'] . "</td>";
                                     echo "<td>" . $row['product_weight'] . "</td>";
                                     echo "<td>" . $currency . $row['product_price'] . "</td>";
+                                    echo "<td>" . $currency . floatval($row['product_price']-$row['product_buy']) . "</td>";
                                     echo "<td>" . date('d F, Y', strtotime($row['product_order_date'])) . "</td>";
 
 
@@ -329,7 +333,8 @@ else {
                                 echo "<th>Total Harga pesanan Rp" . $total_price . "</th>";
                                 echo "<th>Total Pajak =".getCurrency() . $total_tax . "</th>";
                                 echo "<th>Total Diskon=".getCurrency() . $total_discount . "</th>";
-                                echo "<th>Net Sales=".getCurrency() . $net_sales . "</th>";
+                                echo "<th>Penjualan Bersih=".getCurrency() . $net_sales . "</th>";
+                                echo "<th>Total Laba=".getCurrency() . $total_laba . "</th>";
                                 echo "<th></th>";
 
 
@@ -375,14 +380,17 @@ else {
 
 <!-- page script for export data from data tables -->
 <script>
-    $(function () {
+var shop_type = "<?php echo $shop_type; ?>";
+
+$(function() {
+    if(shop_type=="premium"){
         $("#example1").DataTable({
+
             "responsive": true,
             "autoWidth": true,
 
             dom: 'Bfrtip',
             buttons: [
-
                 {
                     extend: 'excelHtml5',
                     exportOptions: {
@@ -413,8 +421,8 @@ else {
 
             ]
         });
-
-    });
+    }
+});
 </script>
 
 

@@ -302,7 +302,7 @@ to get the desired effect
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-sort-amount-up"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Tax</span>
+                <span class="info-box-text">Total Pajak</span>
                 <span class="info-box-number">
                   <?php echo $currency.' '.getTotalTax()?>
                 </span>
@@ -334,7 +334,7 @@ to get the desired effect
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-check-circle"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Batasan Jumlah Penjualan</span>
+                <span class="info-box-text">Jumlah Penjualan Bersih</span>
                 <span class="info-box-number">
                    <?php
                    $total_price=floatval(getTotalOrderPrice());
@@ -394,15 +394,15 @@ to get the desired effect
                 <div class="card">
                   <div class="card-header border-0">
                     <div class="d-flex justify-content-between">
-                      <h3 class="card-title font-weight-bold text-primary" style="color: #414FB7;"">Total Bulanan dari Penjualan Produk</h3>
+                      <h3 class="card-title font-weight-bold text-primary" style="color: #414FB7;"">Total Laba Bulanan dari Penjualan Produk</h3>
                     </div>
                   </div>
                   <div class="card-body">
                     <div class="d-flex">
 
                       <p class="d-flex flex-column">
-                        <span class="text-bold text-lg"><?php echo $currency.' '.getTotalOrderPrice()?></span>
-                        <span>Total Penjualan</span>
+                        <span class="text-bold text-lg"><?php echo $currency.' '.getTotalLaba()?></span>
+                        <span>Total Laba</span>
                       </p>
 
                     </div>
@@ -477,18 +477,18 @@ to get the desired effect
       // Chart data records -- each entry in this array corresponds to a point on
       // the chart.
       data: [
-        { month: 'Jan', value: <?php echo getMonthlySalesAmount('01',$current_year)?>},
-        { month: 'Feb', value:  <?php echo getMonthlySalesAmount('02',$current_year)?>},
-        { month: 'Mar', value:  <?php echo getMonthlySalesAmount('03',$current_year)?>},
-        { month: 'Apr', value:  <?php echo getMonthlySalesAmount('04',$current_year)?>},
-        { month: 'May', value: <?php echo getMonthlySalesAmount('05',$current_year)?>},
-        { month: 'Jun', value:  <?php echo getMonthlySalesAmount('06',$current_year)?>},
-        { month: 'Jul', value:  <?php echo getMonthlySalesAmount('07',$current_year)?>},
-        { month: 'Aug', value:  <?php echo getMonthlySalesAmount('08',$current_year)?>},
-        { month: 'Sep', value:  <?php echo getMonthlySalesAmount('09',$current_year)?>},
-        { month: 'Oct', value:  <?php echo getMonthlySalesAmount('10',$current_year)?>},
-        { month: 'Nov', value:  <?php echo getMonthlySalesAmount('11',$current_year)?>},
-        { month: 'Dec', value:  <?php echo getMonthlySalesAmount('12',$current_year)?>}
+        { month: 'Jan', value: <?php echo getMonthlyLabaAmount('01',$current_year)?>},
+        { month: 'Feb', value:  <?php echo getMonthlyLabaAmount('02',$current_year)?>},
+        { month: 'Mar', value:  <?php echo getMonthlyLabaAmount('03',$current_year)?>},
+        { month: 'Apr', value:  <?php echo getMonthlyLabaAmount('04',$current_year)?>},
+        { month: 'May', value: <?php echo getMonthlyLabaAmount('05',$current_year)?>},
+        { month: 'Jun', value:  <?php echo getMonthlyLabaAmount('06',$current_year)?>},
+        { month: 'Jul', value:  <?php echo getMonthlyLabaAmount('07',$current_year)?>},
+        { month: 'Aug', value:  <?php echo getMonthlyLabaAmount('08',$current_year)?>},
+        { month: 'Sep', value:  <?php echo getMonthlyLabaAmount('09',$current_year)?>},
+        { month: 'Oct', value:  <?php echo getMonthlyLabaAmount('10',$current_year)?>},
+        { month: 'Nov', value:  <?php echo getMonthlyLabaAmount('11',$current_year)?>},
+        { month: 'Dec', value:  <?php echo getMonthlyLabaAmount('12',$current_year)?>}
       ],
       // The name of the data record attribute that contains x-values.
       xkey: 'month',
@@ -524,18 +524,18 @@ to get the desired effect
       // Chart data records -- each entry in this array corresponds to a point on
       // the chart.
       data: [
-        { month: 'Jan', value: <?php echo getMonthlySalesAmount('01',$current_year)?>},
-        { month: 'Feb', value:  <?php echo getMonthlySalesAmount('02',$current_year)?>},
-        { month: 'Mar', value:  <?php echo getMonthlySalesAmount('03',$current_year)?>},
-        { month: 'Apr', value:  <?php echo getMonthlySalesAmount('04',$current_year)?>},
-        { month: 'May', value: <?php echo getMonthlySalesAmount('05',$current_year)?>},
-        { month: 'Jun', value:  <?php echo getMonthlySalesAmount('06',$current_year)?>},
-        { month: 'Jul', value:  <?php echo getMonthlySalesAmount('07',$current_year)?>},
-        { month: 'Aug', value:  <?php echo getMonthlySalesAmount('08',$current_year)?>},
-        { month: 'Sep', value:  <?php echo getMonthlySalesAmount('09',$current_year)?>},
-        { month: 'Oct', value:  <?php echo getMonthlySalesAmount('10',$current_year)?>},
-        { month: 'Nov', value:  <?php echo getMonthlySalesAmount('11',$current_year)?>},
-        { month: 'Dec', value:  <?php echo getMonthlySalesAmount('12',$current_year)?>}
+        { month: 'Jan', value: <?php echo getMonthlyLabaAmount('01',$current_year)?>},
+        { month: 'Feb', value:  <?php echo getMonthlyLabaAmount('02',$current_year)?>},
+        { month: 'Mar', value:  <?php echo getMonthlyLabaAmount('03',$current_year)?>},
+        { month: 'Apr', value:  <?php echo getMonthlyLabaAmount('04',$current_year)?>},
+        { month: 'May', value: <?php echo getMonthlyLabaAmount('05',$current_year)?>},
+        { month: 'Jun', value:  <?php echo getMonthlyLabaAmount('06',$current_year)?>},
+        { month: 'Jul', value:  <?php echo getMonthlyLabaAmount('07',$current_year)?>},
+        { month: 'Aug', value:  <?php echo getMonthlyLabaAmount('08',$current_year)?>},
+        { month: 'Sep', value:  <?php echo getMonthlyLabaAmount('09',$current_year)?>},
+        { month: 'Oct', value:  <?php echo getMonthlyLabaAmount('10',$current_year)?>},
+        { month: 'Nov', value:  <?php echo getMonthlyLabaAmount('11',$current_year)?>},
+        { month: 'Dec', value:  <?php echo getMonthlyLabaAmount('12',$current_year)?>}
       ],
       // The name of the data record attribute that contains x-values.
       xkey: 'month',

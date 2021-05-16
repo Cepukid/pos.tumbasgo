@@ -312,9 +312,9 @@ to get the desired effect
                     </tr>
                     <tr>
                       <td>Pelaporan</td>
-                      <td class="text-center"><i class="ni ni-fat-remove text-danger"></i></td>
-                      <td class="text-center"><i class="ni ni-check-bold text-success"></i></td>
-                      <td class="text-center"><i class="ni ni-check-bold text-success"></i></td>
+                      <td class="text-center"><i class="ni ni-fat-remove text-danger"></i>Tidak Ada</td>
+                      <td class="text-center"><i class="ni ni-check-bold text-success"></i>Ada</td>
+                      <td class="text-center"><i class="ni ni-check-bold text-success"></i>Ada</td>
                     </tr>
 
                       <td>Harga</td>

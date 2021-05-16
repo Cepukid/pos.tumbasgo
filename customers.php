@@ -1,5 +1,6 @@
 <?php
 session_start();
+$shop_type = $_SESSION['shop_type'];
 if (isset($_SESSION['email']) and isset($_SESSION['user_type']) and isset($_SESSION['key']))
     echo " ";
 else {
@@ -365,48 +366,49 @@ else {
 
 <!-- page script for export data from data tables -->
 <script>
-    $(function () {
+var shop_type = "<?php echo $shop_type; ?>";
+
+$(function() {
+    if(shop_type=="premium"){
         $("#example1").DataTable({
+
             "responsive": true,
             "autoWidth": true,
 
             dom: 'Bfrtip',
             buttons: [
-
                 {
                     extend: 'excelHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
+                        columns: [0, 1]
                     }
                 },
                 {
                     extend: 'csvHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
+                        columns: [0, 1]
                     }
                 },
                 {
                     extend: 'pdfHtml5',
 
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
+                        columns: [0, 1]
                     }
                 },
 
                 {
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4]
+                        columns: [0, 1]
                     }
                 },
 
 
             ]
-
-
         });
-
-    });
+    }
+});
 </script>
 
 

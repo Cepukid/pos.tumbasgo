@@ -1,5 +1,9 @@
 <?php
 session_start();
+$shop_type = $_SESSION['shop_type'];
+// echo "<pre>";
+// print_r($_SESSION);
+// exit;
 if (isset($_SESSION['email']) AND isset($_SESSION['user_type']) AND isset($_SESSION['key']) )
     echo " ";
 else {
@@ -317,13 +321,14 @@ else {
                                     $i++;
 
                                     echo "</tr> ";
+
                                 }
 
 
                                 echo "<tr>";
-                                echo "<th>Summary</th>";
+                                echo "<th>Ringkasan</th>";
                                 echo "<th></th>";
-                                echo "<th>Total Amount=</th>";
+                                echo "<th>Jumlah Total=</th>";
                                 echo "<th>".getCurrency() . $total_expense . "</th>";
                                 echo "<th></th>";
                                 echo "<th></th>";
@@ -373,49 +378,53 @@ else {
 <script src="dist/js/adminlte.min.js"></script>
 
 <!-- page script for export data from data tables -->
+
+
 <script>
-    $(function () {
+var shop_type = "<?php echo $shop_type; ?>";
+
+$(function() {
+    if(shop_type=="premium"){
         $("#example1").DataTable({
+
             "responsive": true,
             "autoWidth": true,
 
             dom: 'Bfrtip',
             buttons: [
-
                 {
                     extend: 'excelHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5]
+                        columns: [0, 1, 2, 3, 4,5,6]
                     }
                 },
                 {
                     extend: 'csvHtml5',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5]
+                        columns: [0, 1, 2, 3, 4,5,6]
                     }
                 },
                 {
                     extend: 'pdfHtml5',
 
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5]
+                        columns: [0, 1, 2, 3, 4,5,6]
                     }
                 },
 
                 {
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4,5]
+                        columns: [0, 1, 2, 3, 4,5,6]
                     }
                 },
 
 
             ]
         });
-
-    });
+    }
+});
 </script>
-
 
 <script>
     $('.confirmation').on('click', function () {
