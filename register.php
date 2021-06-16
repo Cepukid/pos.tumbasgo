@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
   $email = $_POST['email'];
   $cell = $_POST['no_hp'];
   $password = $_POST['password'];
-  $password = md5('password');
+  $password = md5($password);
   $password2 = $_POST['password2'];
 
   $shop_name = $_POST['shop_name'];
@@ -289,7 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                   </div>
 
                   <div class="input-group col-lg-12 mb-4">
-                    <input type="password" class="form-control" name="password" id="password" maxlength="8" minlength="8" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password" id="password" minlength="8" placeholder="Password" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-lock"></span>
@@ -298,7 +298,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                   </div>
 
                   <div class="input-group col-lg-12 mb-4">
-                    <input type="password" class="form-control" name="password2" id="password2" maxlength="8" minlength="8" placeholder="Konfirmasi Password" required>
+                    <input type="password" class="form-control" name="password2" id="password2" minlength="8" placeholder="Konfirmasi Password" required>
                     <div class="input-group-append">
                       <div class="input-group-text">
                         <span class="fas fa-lock"></span>

@@ -33,27 +33,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include('db_connect.php');
 
-    $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' and password='$password' AND Verifikasi ='Aktif'");
-
+    $result = mysqli_query($con, "SELECT * FROM users WHERE email='$email' and password='$password'");
     $count = mysqli_num_rows($result);
 
     if ($count == 1) {
 
-      $row = mysqli_fetch_array($result);
+      $result_aktif = mysqli_query($con, "SELECT * FROM users WHERE email='$email' and password='$password' and verifikasi='Aktif'");
+      $count_aktif = mysqli_num_rows($result_aktif);
 
-      $_SESSION['email'] = $row['email'];
-      $_SESSION['key']=mt_rand(1000,9999);
-      $_SESSION['user_type'] = $row['user_type'];
-      $_SESSION['shop_id'] = $row['shop_id'];
-      $shop_id= $_SESSION['shop_id'];
-      $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id");
-      $rows = $result->fetch_assoc();
-      $_SESSION['shop_type']=$rows['shop_type'];
+      if ($count_aktif == 1) {
 
-      header("location:dashboard.php");
+        $row = mysqli_fetch_array($result_aktif);
+
+        $_SESSION['email'] = $row['email'];
+        $_SESSION['key']=mt_rand(1000,9999);
+        $_SESSION['user_type'] = $row['user_type'];
+        $_SESSION['shop_id'] = $row['shop_id'];
+        $shop_id= $_SESSION['shop_id'];
+        $result = mysqli_query($con, "SELECT * FROM shop WHERE shop_id=$shop_id");
+        $rows = $result->fetch_assoc();
+        $_SESSION['shop_type']=$rows['shop_type'];
+
+        header("location:dashboard.php");
+      } else {
+
+        $msg = "<div class='alert alert-danger'> Email anda belum terverifikasi, Silahkan cek email anda !</div>";
+        
+      }
     } else {
 
-      $msg = "<div class='alert alert-danger'> Ada Kesalahan Pada Email atau Password !</div>";
+      $msg = "<div class='alert alert-danger'>  Ada Kesalahan Pada Email atau Password ! </div>";
       
     }
   }

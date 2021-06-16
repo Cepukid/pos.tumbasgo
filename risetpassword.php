@@ -25,9 +25,9 @@ if(isset($_POST["submit"])) {
 
     if($query){
         $query = mysqli_query($con, "DELETE FROM resetpassword WHERE code='$code'");
-        echo "<script> alert('Reset password berhasil');  </script>";//jika pesan terkirim
+        echo "<script> alert('Reset password berhasil'); window.location = 'login.php';  </script>";//jika pesan terkirim
     } else {
-        echo "<script>alert('Gagal Menyimpan '); window.location = 'login.php';</script>";
+        echo "<script>alert('Gagal Menyimpan ');</script>";
     }
 }
 
@@ -190,8 +190,10 @@ if(isset($_POST["submit"])) {
         if (document.getElementById('password').value ==
             document.getElementById('confirm_password').value) {
             document.getElementById('message').style.color = 'green';
-            document.getElementById('message').innerHTML = "<div class='alert alert-danger'> Password dan Konfirmasi Sama </div> ";
+            document.getElementById('message').innerHTML = "<div class='alert alert-success'> Password dan Konfirmasi Sama </div> ";
+            document.getElementById("btnSubmit").disabled = false;
         } else {
+            document.getElementById("btnSubmit").disabled = true;
             document.getElementById('message').style.color = 'red';
             document.getElementById('message').innerHTML = "<div class='alert alert-danger'> Password dan Konfirmasi Tidak Sama </div> ";
         }

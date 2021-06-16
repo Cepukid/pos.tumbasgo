@@ -35,6 +35,8 @@ if(isset($_POST['submit'])) {
                 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
                 $mail->Username   = 'info.kakatoo@gmail.com';               //SMTP username
                 $mail->Password   = 'kakatoo12*';                           //SMTP password
+                // $mail->Username   = 'imamrokhim911@gmail.com';               //SMTP username
+                // $mail->Password   = 'vxqklvxrbvhcywfj';                           //SMTP password
                 $mail->SMTPSecure = 'tls';                                  //Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
                 $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
                 $mail->SMTPOptions = array(
@@ -54,7 +56,7 @@ if(isset($_POST['submit'])) {
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = 'Silahkan klik link berikut untuk reset passwod Anda !';
                 $mail->Body    = "<h1>Anda meminta untuk reset password</h1>
-                                    klik <a href='$url'>link ini</a> untuk melakukannya";
+                                    klik <a href='".$url."'>link ini</a> untuk melakukannya";
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             
                 $mail->send();
@@ -165,7 +167,7 @@ if(isset($_POST['submit'])) {
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <button class="btn btn-primary btn-user btn-block" type="submit" name="submit" >
-                                            Riset Password
+                                            Reset Password
                                         </button>
                                     </form>
                                     <hr>
